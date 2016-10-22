@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnitySteer.Behaviors;
 
 public class playerControl : MonoBehaviour 
 {
@@ -19,6 +20,33 @@ public class playerControl : MonoBehaviour
 	int walk;
 	int taunt;
 	int run;
+	int idle;
+
+	public SteerForPoint steerForPoint; 
+
+
+		// Use this for initialization
+		void Start () {
+		steerForPoint = GetComponent<SteerForPoint>();
+
+		steerForPoint.TargetPoint = new Vector3(-6.0f, 2.6765f, 0.0f);
+
+
+		}
+
+		// Update is called once per frame
+		void Update () {
+
+		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
+			Idle ();
+		} else {
+			Walk ();
+		}
+
+
+		}
+
+
 
 	void Awake () 
 	{
@@ -38,8 +66,14 @@ public class playerControl : MonoBehaviour
 		walk = Animator.StringToHash("walk");
 		taunt = Animator.StringToHash("taunt");
 		run = Animator.StringToHash("run");
+		idle = Animator.StringToHash ("idle");
 	}
 	
+	public void Idle ()
+	{
+		anim.SetTrigger(idle);
+	}
+
 
 	public void Attack01 ()
 	{
