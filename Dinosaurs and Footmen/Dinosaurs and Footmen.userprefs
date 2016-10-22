@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\TiltShift.js">
+    <Files>
+      <File FileName="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\TiltShift.js" Line="58" Column="36" />
+      <File FileName="Assets\Allosaurus\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" Line="1" Column="1" />
+      <File FileName="Assets\Allosaurus\Scripts\Camera.js" Line="1" Column="1" />
+      <File FileName="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\SSAOEffect.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
