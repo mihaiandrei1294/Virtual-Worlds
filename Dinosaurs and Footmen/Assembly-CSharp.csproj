@@ -63,6 +63,7 @@
      <Compile Include="Assets\Footman Control\Roam.cs" />
      <Compile Include="Assets\Footman\Script\MaterialChange.cs" />
      <Compile Include="Assets\Footman\Script\playerControl.cs" />
+     <Compile Include="Assets\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\AngleCosineAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\RangeAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\Vector3ToggleAttribute.cs" />
@@ -106,6 +107,7 @@
      <None Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\GhostFreeRoamCamera\READEME.txt" />
      <None Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowConeTap.shader" />
      <None Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SunShaftsComposite.shader" />
