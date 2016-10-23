@@ -22,43 +22,10 @@ public class playerControl : MonoBehaviour
 	int run;
 	int idle;
 
-	public SteerForPoint steerForPoint; 
-
-
-		// Use this for initialization
-		void Start () {
-		steerForPoint = GetComponent<SteerForPoint>();
-		steerForPoint.TargetPoint = generateRandomTargetPoint();
-		steerForPoint.enabled = true;
-
-
-		}
-
-		// Update is called once per frame
-		void Update () {
-
-		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
-			//Idle ();
-			steerForPoint.TargetPoint = generateRandomTargetPoint();
-		} else {
-			Walk ();
-		}
-
-
-		}
-
-	// Generates a random point for in some boundaries, for the random roaming
-	private Vector3 generateRandomTargetPoint(){
-		float x = Random.Range (-50.0f, 50.0f);
-		float y = 2.76f; // constant because footmen don't fly
-		float z = Random.Range(-50.0f, 50.0f);
-
-		return new Vector3 (x, y, z);
-	}
 
 	void Awake () 
 	{
-		anim = GetComponent<Animator>();
+		//anim = GetComponent<Animator>();
 		attack01 = Animator.StringToHash("attack_01");
 		attack02 = Animator.StringToHash("attack_02");
 		attack03 = Animator.StringToHash("attack_03");
