@@ -13,7 +13,6 @@ public class Roam : MonoBehaviour {
 
 		biped = GetComponent<Biped> ();
 		biped.enabled = true;
-		biped.MaxSpeed = 2;
 
 		steerForPoint = GetComponent<SteerForPoint>();
 		steerForPoint.enabled = true;
@@ -30,7 +29,7 @@ public class Roam : MonoBehaviour {
 			steerForPoint.TargetPoint = generateRandomTargetPoint(new Vector2(160.0f, 280.0f),new Vector2(180.0f, 200.0f));
 			control.Run ();
 
-			biped.MaxSpeed = 6;
+			biped.MaxSpeed = 4;
 
 
 		}
