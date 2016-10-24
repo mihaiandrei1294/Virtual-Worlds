@@ -1,9 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Allosaurus\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UnitySteer-3.0.0-RC2\UnitySteer-3.0.0-RC2\Behaviors\Biped.cs">
     <Files>
       <File FileName="Assets\Footman Control\Roam.cs" Line="1" Column="1" />
-      <File FileName="Assets\Allosaurus\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="19" Column="22" />
+      <File FileName="Assets\Allosaurus\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="1" Column="1" />
+      <File FileName="Assets\UnitySteer-3.0.0-RC2\UnitySteer-3.0.0-RC2\Attributes\AngleCosineAttribute.cs" Line="3" Column="18" />
+      <File FileName="Assets\UnitySteer-3.0.0-RC2\Vector3Pathway.cs" Line="37" Column="1" />
+      <File FileName="Assets\UnitySteer-3.0.0-RC2\UnitySteer-3.0.0-RC2\Attributes\RangeAttribute.cs" Line="5" Column="18" />
+      <File FileName="Assets\UnitySteer-3.0.0-RC2\UnitySteer-3.0.0-RC2\Attributes\Vector3ToggleAttribute.cs" Line="8" Column="18" />
+      <File FileName="Assets\UnitySteer-3.0.0-RC2\UnitySteer-3.0.0-RC2\Behaviors\AutonomousVehicle.cs" Line="13" Column="18" />
+      <File FileName="Assets\UnitySteer-3.0.0-RC2\UnitySteer-3.0.0-RC2\Behaviors\Biped.cs" Line="11" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
