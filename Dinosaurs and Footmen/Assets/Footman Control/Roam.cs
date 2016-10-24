@@ -6,17 +6,19 @@ public class Roam : MonoBehaviour {
 
 	public playerControl control;
 	public SteerForPoint steerForPoint;
+	public Biped biped;
 
 	// Use this for initialization
 	void Start () {
 
-		Debug.Log ("Initial point: x - " + GetComponent<Transform> ().position.x + ", y - " + GetComponent<Transform> ().position.y + ", z - " + GetComponent<Transform> ().position.z);
-		steerForPoint.TargetPoint.Set(steerForPoint.TargetPoint.x, steerForPoint.TargetPoint.y, -8);
+		biped = GetComponent<Biped> ();
+		biped.enabled = true;
+
 		steerForPoint = GetComponent<SteerForPoint>();
-		steerForPoint.TargetPoint = GetComponent<Transform> ().position;
-		steerForPoint.TargetPoint.Set(steerForPoint.TargetPoint.x, steerForPoint.TargetPoint.y, -8);
 		steerForPoint.enabled = true;
 
+		steerForPoint.TargetPoint = new Vector3(GetComponent<Transform> ().position.x, GetComponent<Transform> ().position.y, 88);
+		control.Walk ();
 
 	}
 
@@ -24,21 +26,22 @@ public class Roam : MonoBehaviour {
 	void Update () {
 
 		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
-			//control.Idle ();
-			steerForPoint.TargetPoint = generateRandomTargetPoint(new Vector2(-20.0f, 20.0f),new Vector2(-20.0f, 20.0f));
-		} else {
-			control.Walk ();
-		}
+			steerForPoint.TargetPoint = generateRandomTargetPoint(new Vector2(160.0f, 280.0f),new Vector2(180.0f, 200.0f));
+			control.Run ();
 
+			biped.MaxSpeed = 4;
+
+
+		}
 
 	}
 
 
 	// Generates a random point for in some boundaries, for the random roaming
 	private Vector3 generateRandomTargetPoint(Vector2 rangeX, Vector2 rangeZ){
-		float x = Random.Range (-20.0f, 20.0f);
-		float y = 2.76f; // constant because footmen don't fly
-		float z = Random.Range(-20.0f, 20.0f);
+		float x = Random.Range (rangeX.x, rangeX.y);
+		float y = 0; // constant because footmen don't fly
+		float z = Random.Range(rangeZ.x, rangeZ.y);
 
 		return new Vector3 (x, y, z);
 	}

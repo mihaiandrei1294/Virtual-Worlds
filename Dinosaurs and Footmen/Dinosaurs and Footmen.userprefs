@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Footman Control\Roam.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Allosaurus\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js">
     <Files>
-      <File FileName="Assets\Footman Control\Roam.cs" Line="17" Column="1" />
+      <File FileName="Assets\Footman Control\Roam.cs" Line="1" Column="1" />
+      <File FileName="Assets\Allosaurus\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="19" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
