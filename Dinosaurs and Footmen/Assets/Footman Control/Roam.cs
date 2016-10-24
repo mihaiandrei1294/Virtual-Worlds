@@ -13,7 +13,7 @@ public class Roam : MonoBehaviour {
 
 		biped = GetComponent<Biped> ();
 		biped.enabled = true;
-		biped.MaxSpeed = 2;
+		biped.MaxSpeed = 2.5f;
 
 		steerForPoint = GetComponent<SteerForPoint>();
 		steerForPoint.enabled = true;
