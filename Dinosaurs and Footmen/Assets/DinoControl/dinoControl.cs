@@ -8,13 +8,21 @@ public class dinoControl : MonoBehaviour
     public playerControl control;
     public SteerForPoint cSteering;
     public Animator animator;
+	public SteerToFollow csFollow;
+	public Biped biped;
     // Use this for initialization
     void Start()
     {
         cSteering = GetComponent<SteerForPoint>();
         animator = GetComponent<Animator>();
+		csFollow = GetComponent<SteerToFollow> ();
+		biped = GetComponent<Biped> ();
+		biped.enabled = true;
         //the steering is enabled
         cSteering.enabled = true;
+		csFollow.enabled = false;
+		cSteering.TargetPoint = new Vector3 (210, 0, 72);
+
 		Walk ();
     }
 
@@ -30,15 +38,16 @@ public class dinoControl : MonoBehaviour
 
         if (Vector3.Distance(robotCurrPos, robotTargetPos) < 1.0)
         {
-            Debug.Log("STOP, disable steering. Transition to idle");
-            cSteering.enabled = true;
-            cSteering.TargetPoint = generateRandomTargetPoint(new Vector2(160.0f, 280.0f), new Vector2(180.0f, 200.0f));
+            //Debug.Log("STOP, disable steering. Transition to idle");
+            cSteering.enabled = false;
+			csFollow.enabled = true;
+            //cSteering.TargetPoint = generateRandomTargetPoint(new Vector2(160.0f, 280.0f), new Vector2(180.0f, 200.0f));
+			biped.MaxSpeed = 5.5f;
 			Run();
         }
         else
         {
-            
-            Debug.Log("current position: " + robotCurrPos + "  target:  " + robotTargetPos + "\n");
+            //Debug.Log("current position: " + robotCurrPos + "  target:  " + robotTargetPos + "\n");
         }
     }
     // Generates a random point for in some boundaries, for the random roaming

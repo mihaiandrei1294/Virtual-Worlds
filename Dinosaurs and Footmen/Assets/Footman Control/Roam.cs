@@ -7,6 +7,7 @@ public class Roam : MonoBehaviour {
 	public playerControl control;
 	public SteerForPoint steerForPoint;
 	public Biped biped;
+	public SteerForEvasion steerForFear;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,9 @@ public class Roam : MonoBehaviour {
 		steerForPoint = GetComponent<SteerForPoint>();
 		steerForPoint.enabled = true;
 
+		steerForFear = GetComponent<SteerForEvasion>();
+		steerForFear.enabled = false;
+
 		steerForPoint.TargetPoint = new Vector3(GetComponent<Transform> ().position.x, GetComponent<Transform> ().position.y, 88);
 		control.Walk ();
 
@@ -28,8 +32,11 @@ public class Roam : MonoBehaviour {
 
 		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
 			steerForPoint.TargetPoint = generateRandomTargetPoint(new Vector2(160.0f, 280.0f),new Vector2(180.0f, 200.0f));
-			control.Run ();
 
+			//steerForPoint.enabled = false;
+			//steerForFear.enabled = true;
+
+			control.Run ();
 			biped.MaxSpeed = 6;
 
 
