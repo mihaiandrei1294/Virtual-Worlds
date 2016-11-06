@@ -2,16 +2,18 @@
 using System.Collections;
 using UnitySteer.Behaviors;
 
-public class Roam : MonoBehaviour {
+public class RedLead : MonoBehaviour {
+
 
 	public playerControl control;
 	public SteerForPoint steerForPoint;
 	public Biped biped;
 	public SteerForEvasion steerForFear;
+	public SteerForAlignment steerForAlignement;
 
 	// Use this for initialization
 	void Start () {
-
+	
 		biped = GetComponent<Biped> ();
 		biped.enabled = true;
 		biped.MaxSpeed = 2.5f;
@@ -22,16 +24,20 @@ public class Roam : MonoBehaviour {
 		steerForFear = GetComponent<SteerForEvasion>();
 		steerForFear.enabled = false;
 
+		steerForAlignement = GetComponent<SteerForAlignment> ();
+		steerForAlignement.enabled = true;
+
 		steerForPoint.TargetPoint = new Vector3(GetComponent<Transform> ().position.x, GetComponent<Transform> ().position.y, 88);
 		control.Walk ();
 
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
+	
 
 		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
-			steerForPoint.TargetPoint = generateRandomTargetPoint(new Vector2(160.0f, 280.0f),new Vector2(180.0f, 200.0f));
+			steerForPoint.TargetPoint = generateRandomTargetPoint (new Vector2 (160.0f, 280.0f), new Vector2 (180.0f, 200.0f));
 
 			//steerForPoint.enabled = false;
 			//steerForFear.enabled = true;
@@ -41,17 +47,14 @@ public class Roam : MonoBehaviour {
 
 
 		}
+	}
+		// Generates a random point for in some boundaries, for the random roaming
+		private Vector3 generateRandomTargetPoint(Vector2 rangeX, Vector2 rangeZ){
+			float x = Random.Range (rangeX.x, rangeX.y);
+			float y = 0; // constant because footmen don't fly
+			float z = Random.Range(rangeZ.x, rangeZ.y);
+
+			return new Vector3 (x, y, z);
+		}
 
 	}
-
-
-	// Generates a random point for in some boundaries, for the random roaming
-	private Vector3 generateRandomTargetPoint(Vector2 rangeX, Vector2 rangeZ){
-		float x = Random.Range (rangeX.x, rangeX.y);
-		float y = 0; // constant because footmen don't fly
-		float z = Random.Range(rangeZ.x, rangeZ.y);
-
-		return new Vector3 (x, y, z);
-	}
-
-}
