@@ -60,8 +60,8 @@
      <Compile Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\SepiaToneEffect.cs" />
      <Compile Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
      <Compile Include="Assets\Allosaurus\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
-     <Compile Include="Assets\DinoControl\dinoControl.cs" />
-     <Compile Include="Assets\Footman Control\Roam.cs" />
+     <Compile Include="Assets\Footman Control\RedLead.cs" />
+     <Compile Include="Assets\Footman Control\YellowFollowers.cs" />
      <Compile Include="Assets\Footman\Script\MaterialChange.cs" />
      <Compile Include="Assets\Footman\Script\playerControl.cs" />
      <Compile Include="Assets\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />
@@ -104,6 +104,7 @@
      <Compile Include="Assets\Handpainted Forest Environment Free Sample\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\Handpainted Forest Environment Free Sample\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
      <Compile Include="Assets\Jurassic Pack\-Demo\comp_cs.cs" />
+     <Compile Include="Assets\SkeletonControl\skeletonControl.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\AngleCosineAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\RangeAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\Vector3ToggleAttribute.cs" />
@@ -291,6 +292,10 @@
  <Reference Include="TickedPriorityQueue">
  <HintPath>C:/Users/Chantal/Documents/Cours/UPC/NDVW/git/Virtual-Worlds/Dinosaurs and Footmen/Assets/UnitySteer-3.0.0-RC2/TickedPriorityQueue/TickedPriorityQueue.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E4BC92D6-423C-5189-F6F5-AC57A60722B0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

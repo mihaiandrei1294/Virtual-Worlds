@@ -224,6 +224,10 @@
  <HintPath>C:/Users/Chantal/Documents/Cours/UPC/NDVW/git/Virtual-Worlds/Dinosaurs and Footmen/Assets/UnitySteer-3.0.0-RC2/TickedPriorityQueue/TickedPriorityQueue.dll</HintPath>
  </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E4BC92D6-423C-5189-F6F5-AC57A60722B0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
