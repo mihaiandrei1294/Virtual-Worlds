@@ -9,7 +9,11 @@ public class RedLead : MonoBehaviour {
 	public SteerForPoint steerForPoint;
 	public Biped biped;
 	public SteerForEvasion steerForFear;
-	public SteerForAlignment steerForAlignement;
+	public SteerForAlignment steerForAlignement;	
+	public SteerForCohesion steerForCohesion;
+	public SteerForNeighborGroup steerForNGroup;
+	public SteerForSphericalObstacles steerForObstacles;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,17 +22,30 @@ public class RedLead : MonoBehaviour {
 		biped.enabled = true;
 		biped.MaxSpeed = 2.5f;
 
-		steerForPoint = GetComponent<SteerForPoint>();
+		steerForFear = GetComponent<SteerForEvasion> ();
+		steerForFear.enabled = false;
+
+
+		steerForPoint = GetComponent<SteerForPoint> ();
 		steerForPoint.enabled = true;
 
-		steerForFear = GetComponent<SteerForEvasion>();
-		steerForFear.enabled = false;
+		steerForCohesion = GetComponent<SteerForCohesion> ();
+		steerForCohesion.enabled = true;
+
+
+
+		steerForObstacles = GetComponent<SteerForSphericalObstacles> ();
+		steerForObstacles.enabled = true;
 
 		steerForAlignement = GetComponent<SteerForAlignment> ();
 		steerForAlignement.enabled = true;
 
-		steerForPoint.TargetPoint = new Vector3(GetComponent<Transform> ().position.x, GetComponent<Transform> ().position.y, 88);
+		steerForNGroup = GetComponent<SteerForNeighborGroup> ();
+		steerForNGroup.enabled = true;
+
+		steerForPoint.TargetPoint = new Vector3(215, 0, 88);
 		control.Walk ();
+
 
 	}
 	

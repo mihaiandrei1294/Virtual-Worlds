@@ -31,7 +31,7 @@ public class skeletonControl : MonoBehaviour
     {
         Vector3 skeletonCurrPos;
         Vector3 skeletonTargetPos = new Vector3();
-        cSteering.enabled = true;
+        //cSteering.enabled = true;
         skeletonCurrPos = transform.position;
 
         skeletonTargetPos = cSteering.TargetPoint;
