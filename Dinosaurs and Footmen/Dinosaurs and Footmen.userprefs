@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Footman Control\MoveFlock.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UnitySteer-3.0.0-RC2\Behaviors\DetectableObject.cs">
     <Files>
       <File FileName="Assets\Flocking Unity\UnityFlockController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Flocking Unity\UnityFlock.cs" Line="82" Column="21" />
-      <File FileName="Assets\Footman Control\RedFlock.cs" Line="22" Column="19" />
+      <File FileName="Assets\Flocking Unity\UnityFlock.cs" Line="1" Column="1" />
+      <File FileName="Assets\Footman Control\RedFlock.cs" Line="1" Column="1" />
       <File FileName="Assets\Footman Control\MoveFlock.cs" Line="1" Column="1" />
+      <File FileName="Assets\UnitySteer-3.0.0-RC2\Behaviors\DetectableObject.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
