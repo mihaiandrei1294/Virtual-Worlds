@@ -42,9 +42,9 @@ namespace UnitySteer.Behaviors
 
             var difference = TetherPosition - Vehicle.Position;
             var distance = difference.magnitude;
-            if (distance > _maximumDistance)
+            if (distance < _maximumDistance)
             {
-                steering = (difference + Vehicle.DesiredVelocity) / 2;
+                steering = (- difference +  Vehicle.DesiredVelocity) / 2;
             }
             return steering;
         }

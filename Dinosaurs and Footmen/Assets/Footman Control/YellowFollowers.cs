@@ -8,14 +8,19 @@ public class YellowFollowers : MonoBehaviour {
 	public SteerForPoint steerForPoint;
 	public Biped biped;
 	public SteerForEvasion steerForFear;
-	public SteerForAlignment steerForAlignement;
+	public SteerForAlignment steerForAlignement;	
 	public SteerForCohesion steerForCohesion;
 	public SteerForNeighborGroup steerForNGroup;
 	public SteerForSphericalObstacles steerForObstacles;
+	public SteerForTether steerForTheter;
+	public GameObject skeleton;
 
 	// Use this for initialization
 	void Start () {
-		
+
+		steerForTheter = GetComponent<SteerForTether> ();
+		steerForTheter.enabled = false;
+
 		biped = GetComponent<Biped> ();
 		biped.enabled = true;
 		biped.MaxSpeed = 2.5f;
@@ -40,32 +45,33 @@ public class YellowFollowers : MonoBehaviour {
 
 		steerForNGroup = GetComponent<SteerForNeighborGroup> ();
 		steerForNGroup.enabled = true;
-		steerForNGroup.Weight = 10;
 
 		steerForPoint.TargetPoint = new Vector3(215, 0, 107); //z changed from 88 to 107
 		control.Walk ();
 
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
-		//if (steerForCohesion.enabled == false) {
-			//steerForCohesion.enabled = true;
-			//Debug.Log ("Changed steer for choesion!");
-		//}
 
-		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 1f) {
-			steerForPoint.TargetPoint = generateRandomTargetPoint (new Vector2 (160.0f, 280.0f), new Vector2 (180.0f, 200.0f));
+		Transform skeletonTransform = skeleton.GetComponent<Transform> ();
+		Vector3 skeletonPosition = skeletonTransform.position;
+		steerForTheter.TetherPosition = skeletonPosition;
 
+		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
+
+			//steerForPoint.TargetPoint = generateRandomTargetPoint (new Vector2 (160.0f, 280.0f), new Vector2 (180.0f, 200.0f));
+
+
+			steerForPoint.enabled = false;
+			steerForTheter.enabled = true;
 			control.Run ();
 			biped.MaxSpeed = 6;
 
-
 		}
 	}
-
 	// Generates a random point for in some boundaries, for the random roaming
 	private Vector3 generateRandomTargetPoint(Vector2 rangeX, Vector2 rangeZ){
 		float x = Random.Range (rangeX.x, rangeX.y);

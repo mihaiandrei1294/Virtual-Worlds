@@ -13,11 +13,15 @@ public class RedLead : MonoBehaviour {
 	public SteerForCohesion steerForCohesion;
 	public SteerForNeighborGroup steerForNGroup;
 	public SteerForSphericalObstacles steerForObstacles;
-
+	public SteerForTether steerForTheter;
+	public GameObject skeleton;
 
 	// Use this for initialization
 	void Start () {
-	
+
+		steerForTheter = GetComponent<SteerForTether> ();
+		steerForTheter.enabled = false;
+
 		biped = GetComponent<Biped> ();
 		biped.enabled = true;
 		biped.MaxSpeed = 2.5f;
@@ -53,13 +57,17 @@ public class RedLead : MonoBehaviour {
 	void Update () {
 	
 
+		Transform skeletonTransform = skeleton.GetComponent<Transform> ();
+		Vector3 skeletonPosition = skeletonTransform.position;
+		steerForTheter.TetherPosition = skeletonPosition;
+
 		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
-			//steerForAlignement.enabled = false;
 
-			steerForPoint.TargetPoint = generateRandomTargetPoint (new Vector2 (160.0f, 280.0f), new Vector2 (180.0f, 200.0f));
+			//steerForPoint.TargetPoint = generateRandomTargetPoint (new Vector2 (160.0f, 280.0f), new Vector2 (180.0f, 200.0f));
 
-			//steerForFear.enabled = true;
 
+			steerForPoint.enabled = false;
+			steerForTheter.enabled = true;
 			control.Run ();
 			biped.MaxSpeed = 6;
 
