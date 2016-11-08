@@ -21,7 +21,7 @@ public class skeletonControl : MonoBehaviour
         cSteering.enabled = true;
 
 		csPursuit.enabled = false;
-		cSteering.TargetPoint = new Vector3 (230, 0, 107);
+		cSteering.TargetPoint = new Vector3 (215, 0, 107); //x changed from 230 to 215
 
 		Walk ();
     }

@@ -41,7 +41,7 @@ public class YellowFollowers : MonoBehaviour {
 		steerForNGroup = GetComponent<SteerForNeighborGroup> ();
 		steerForNGroup.enabled = true;
 
-		steerForPoint.TargetPoint = new Vector3(215, 0, 88);
+		steerForPoint.TargetPoint = new Vector3(215, 0, 107); //z changed from 88 to 107
 		control.Walk ();
 
 		

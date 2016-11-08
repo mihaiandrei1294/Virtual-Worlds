@@ -38,13 +38,15 @@ public class RedLead : MonoBehaviour {
 		steerForObstacles.enabled = true;
 
 		steerForAlignement = GetComponent<SteerForAlignment> ();
-		steerForAlignement.enabled = true;
+
 
 		steerForNGroup = GetComponent<SteerForNeighborGroup> ();
 		steerForNGroup.enabled = true;
 
-		steerForPoint.TargetPoint = new Vector3(215, 0, 88);
+		steerForPoint.TargetPoint = new Vector3(215, 0, 107); //z changed from 88 to 107
 		control.Walk ();
+
+		steerForAlignement.enabled = true;
 
 
 	}
@@ -54,9 +56,10 @@ public class RedLead : MonoBehaviour {
 	
 
 		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
+			steerForAlignement.enabled = false;
+
 			steerForPoint.TargetPoint = generateRandomTargetPoint (new Vector2 (160.0f, 280.0f), new Vector2 (180.0f, 200.0f));
 
-			//steerForPoint.enabled = false;
 			//steerForFear.enabled = true;
 
 			control.Run ();
