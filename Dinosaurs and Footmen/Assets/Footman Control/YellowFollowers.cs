@@ -28,7 +28,7 @@ public class YellowFollowers : MonoBehaviour {
 		steerForPoint.enabled = true;
 
 		steerForCohesion = GetComponent<SteerForCohesion> ();
-		steerForCohesion.enabled = true;
+		steerForCohesion.enabled = false;
 
 
 
@@ -36,10 +36,11 @@ public class YellowFollowers : MonoBehaviour {
 		steerForObstacles.enabled = true;
 
 		steerForAlignement = GetComponent<SteerForAlignment> ();
-		steerForAlignement.enabled = true;
+		steerForAlignement.enabled = false;
 
 		steerForNGroup = GetComponent<SteerForNeighborGroup> ();
 		steerForNGroup.enabled = true;
+		steerForNGroup.Weight = 10;
 
 		steerForPoint.TargetPoint = new Vector3(215, 0, 107); //z changed from 88 to 107
 		control.Walk ();
