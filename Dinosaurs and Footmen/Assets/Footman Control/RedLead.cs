@@ -13,14 +13,14 @@ public class RedLead : MonoBehaviour {
 	public SteerForCohesion steerForCohesion;
 	public SteerForNeighborGroup steerForNGroup;
 	public SteerForSphericalObstacles steerForObstacles;
-	public SteerForTether steerForTheter;
+	public SteerForReverseTether steerForReverseTheter;
 	public GameObject skeleton;
 
 	// Use this for initialization
 	void Start () {
 
-		steerForTheter = GetComponent<SteerForTether> ();
-		steerForTheter.enabled = false;
+		steerForReverseTheter = GetComponent<SteerForReverseTether> ();
+		steerForReverseTheter.enabled = false;
 
 		biped = GetComponent<Biped> ();
 		biped.enabled = true;
@@ -52,14 +52,14 @@ public class RedLead : MonoBehaviour {
 
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 
 		Transform skeletonTransform = skeleton.GetComponent<Transform> ();
 		Vector3 skeletonPosition = skeletonTransform.position;
-		steerForTheter.TetherPosition = skeletonPosition;
+		steerForReverseTheter.TetherPosition = skeletonPosition;
 
 		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
 
@@ -67,19 +67,19 @@ public class RedLead : MonoBehaviour {
 
 
 			steerForPoint.enabled = false;
-			steerForTheter.enabled = true;
+			steerForReverseTheter.enabled = true;
 			control.Run ();
 			biped.MaxSpeed = 6;
 
 		}
 	}
-		// Generates a random point for in some boundaries, for the random roaming
-		private Vector3 generateRandomTargetPoint(Vector2 rangeX, Vector2 rangeZ){
-			float x = Random.Range (rangeX.x, rangeX.y);
-			float y = 0; // constant because footmen don't fly
-			float z = Random.Range(rangeZ.x, rangeZ.y);
+	// Generates a random point for in some boundaries, for the random roaming
+	private Vector3 generateRandomTargetPoint(Vector2 rangeX, Vector2 rangeZ){
+		float x = Random.Range (rangeX.x, rangeX.y);
+		float y = 0; // constant because footmen don't fly
+		float z = Random.Range(rangeZ.x, rangeZ.y);
 
-			return new Vector3 (x, y, z);
-		}
+		return new Vector3 (x, y, z);
+	}
 
 	}

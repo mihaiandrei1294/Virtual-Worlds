@@ -43,7 +43,7 @@ public class skeletonControl : MonoBehaviour
 
             cSteering.enabled = false;
 			csPursuit.enabled = true;
-			biped.MaxSpeed = 8.0f;
+			biped.MaxSpeed = 6.5f;
 			Run();
         }
         else
