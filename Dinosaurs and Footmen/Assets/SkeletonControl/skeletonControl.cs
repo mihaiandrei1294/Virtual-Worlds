@@ -59,6 +59,7 @@ public class skeletonControl : MonoBehaviour
 	int idle;
 	int run;
 	int walk;
+	int attack;
 
 	void Awake ()
 	{
@@ -66,6 +67,7 @@ public class skeletonControl : MonoBehaviour
 		idle = Animator.StringToHash ("stand");
 		run = Animator.StringToHash ("run");
 		walk = Animator.StringToHash ("walk");
+		attack = Animator.StringToHash ("attack");
 	}
 
 	public void Idle ()
@@ -82,5 +84,10 @@ public class skeletonControl : MonoBehaviour
 	public void Walk ()
 	{
 		animator.SetTrigger(walk);
+	}
+
+	public void Attack ()
+	{
+		animator.SetTrigger(attack);
 	}
 }

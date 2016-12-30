@@ -91,6 +91,7 @@
      <Compile Include="Assets\Handpainted Forest Environment Free Sample\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\Handpainted Forest Environment Free Sample\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
      <Compile Include="Assets\Jurassic Pack\-Demo\comp_cs.cs" />
+     <Compile Include="Assets\SkeletonControl\attackAction.cs" />
      <Compile Include="Assets\SkeletonControl\skeletonControl.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\AngleCosineAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\RangeAttribute.cs" />
