@@ -10,6 +10,8 @@ public class chaseAction : MonoBehaviour
 
 	private tempSkelControl parent; //main script that will have useful variables, used to handle animations
 	
+	
+	private NavMeshAgent agent;
 	public float speed = 0.5f;
 	
 	// Use this for initialization
@@ -19,20 +21,15 @@ public class chaseAction : MonoBehaviour
 
 		target = parent.target;
 		targetpos = target.transform;
+		
+		agent = GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//Rotate towards the target
-		Vector3 direction = targetpos.position - this.transform.position;
-		direction.y = 0;
 		
-		this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 1f);
-		
-		
-		
-		this.transform.Translate(0,0, this.speed);
+		agent.SetDestination(targetpos.position);
 		
 		//play run animation
 		parent.RunAnim();

@@ -9,12 +9,17 @@ public class tempSkelControl : MonoBehaviour {
 	private Transform targetpos;
 	private Animator anim;
 
+	public float attackRange = 4;	//attack range
+	
+	
 	//scripts
 	private chaseAction chaseBehavior;
 	private attackAction attackBehavior;
 	private dieAction dieBehavior;
 	private startAction startBehavior;
 
+	private NavMeshAgent agent;
+	
 	//some private variable about animation boolean names
 	private string idle = "isStanding";
 	private string run = "isRunning";
@@ -30,6 +35,7 @@ public class tempSkelControl : MonoBehaviour {
 	void Start ()
 	{
 		anim = GetComponent<Animator>();
+		agent = GetComponent<NavMeshAgent>();
 		targetpos = target.transform;
 		
 		
@@ -83,9 +89,7 @@ public class tempSkelControl : MonoBehaviour {
 			//else if too far away, just walk
 			else if (Vector3.Distance(targetpos.position, this.transform.position) > 20)
 			{
-				startBehavior.enabled = true;
-				chaseBehavior.enabled = false;
-				attackBehavior.enabled = false;
+				Walk();
 			}
 			else //If see the target 
 			{
@@ -93,19 +97,17 @@ public class tempSkelControl : MonoBehaviour {
 				
 				Vector3 direction = targetpos.position - this.transform.position;
 				//If two far, chase target
-				if(direction.magnitude > 3)
+				if(direction.magnitude > attackRange)
 				{
-					chaseBehavior.enabled = true;
-					attackBehavior.enabled = false;
+					Chase();
 				}
 				else	//attack
 				{
-					chaseBehavior.enabled = false;
-					attackBehavior.enabled = true;
+					Attack();
 				}
 			}
 		}
-		else
+		else //play dead
 		{
 			dieBehavior.enabled = true;
 			chaseBehavior.enabled = false;
@@ -116,7 +118,38 @@ public class tempSkelControl : MonoBehaviour {
 	}
 	
 	
+	//Functions activating behaviors
+	public void Chase()
+	{
+		agent.speed = chaseBehavior.speed;	//access to speed parameter of chaseAction
+		
+		dieBehavior.enabled = false;
+		chaseBehavior.enabled = true;
+		attackBehavior.enabled = false;
+		startBehavior.enabled = false;
+	}
+	
+	public void Attack()
+	{
+		dieBehavior.enabled = false;
+		chaseBehavior.enabled = false;
+		attackBehavior.enabled = true;
+		startBehavior.enabled = false;
+	}
+	
+	public void Walk()	//walk = start (but start already used)
+	{
+		agent.speed = startBehavior.speed;	//access to speed parameter of startAction
+		
+		dieBehavior.enabled = false;
+		chaseBehavior.enabled = false;
+		attackBehavior.enabled = false;
+		startBehavior.enabled = true;
+	}
+	
+	
 	//Functions playing animations
+	//Note: Animation management is done in the behaviors and not in this file if possible
 	public void IdleAnim()
 	{
 		anim.SetBool(idle, true);
