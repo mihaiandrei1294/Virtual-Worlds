@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class chaseAction : MonoBehaviour 
-{
+
+//smell FM smells -> move towards them (FM = red FM??)
+//FM = red FM for now
+
+public class startAction : MonoBehaviour {
 
 	private GameObject target;
 	private Transform targetpos;
-
-
-	private tempSkelControl parent; //main script that will have useful variables, used to handle animations
 	
-	public float speed = 0.5f;
+	
+	private tempSkelControl parent; //main script that will have useful variables, used to handle animations
+
+	public float speed = 0.2f;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		parent = GetComponent<tempSkelControl>();
-
+		
 		target = parent.target;
 		targetpos = target.transform;
 	}
@@ -35,8 +38,6 @@ public class chaseAction : MonoBehaviour
 		this.transform.Translate(0,0, this.speed);
 		
 		//play run animation
-		parent.RunAnim();
-
-
+		parent.WalkAnim();
 	}
 }
