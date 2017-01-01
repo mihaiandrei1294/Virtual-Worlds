@@ -97,6 +97,7 @@
      <Compile Include="Assets\SkeletonControl\skeletonControl.cs" />
      <Compile Include="Assets\SkeletonControl\startAction.cs" />
      <Compile Include="Assets\SkeletonControl\tempSkelControl.cs" />
+     <Compile Include="Assets\StaffControl\StaffControl.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\AngleCosineAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\RangeAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\Vector3ToggleAttribute.cs" />
