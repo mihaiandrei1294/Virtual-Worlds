@@ -8,6 +8,7 @@ public class StaffControl : MonoBehaviour {
 	private Vector3 defaultPosition = new Vector3(250, 0, 149); //just a default position in case no position has been set
     private int grabbed = 0;
     private string player = "";
+	
 	// Use this for initialization
 	void Start () {
 		if(startPositions.Length == 0)
@@ -26,12 +27,12 @@ public class StaffControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (grabbed == 1 && player != "")
+	    /*if (grabbed == 1 && player != "")
         {
             this.transform.position = GameObject.Find(player).transform.position;
-        }
+        }*/
 	}
-
+	/*
     void OnTriggerEnter(Collider _collider)
     {
         Debug.Log("TRIGGER before");
@@ -123,5 +124,5 @@ public class StaffControl : MonoBehaviour {
             GameObject.Find("Red_Footman").GetComponent<Animator>().SetBool("SoP", false);
         }
     }
-
+	*/
 }

@@ -8,11 +8,14 @@ ONLY when the skeleton is in range of a footman. This action performs an attack.
 
 public class attackAction : MonoBehaviour {
 
-	private GameObject target;
-	private Transform targetpos;
+
 	private Animator anim;
 	
 	private bool hasHit = false;
+	
+	
+	private SkelControl parent; //main script that will have useful variables, used to handle animations
+	
 	
 	//some private variable about animation boolean names
 	private string run = "isRunning";
@@ -22,7 +25,7 @@ public class attackAction : MonoBehaviour {
 	void Start ()
 	{
 		anim = GetComponent<Animator>();
-		target = this.GetComponent<SkelControl>().target;
+		parent = GetComponent<SkelControl>();
 	}
 	
 	// Update is called once per frame
@@ -45,7 +48,7 @@ public class attackAction : MonoBehaviour {
 		if (!hasHit && animDuration > 0.35f && animDuration < 0.45f && !anim.IsInTransition(0))
 		{
 			hasHit = true;
-			Destroy(target);
+			Destroy(parent.target);
 		}
 		else if (hasHit && animDuration > 0.45f)
 		{

@@ -6,7 +6,6 @@ using System.Collections;
 public class SkelControl : MonoBehaviour {
 
 	public GameObject target;
-	private Transform targetpos;
 	private Animator anim;
 
 	public float attackRange = 4;	//attack range
@@ -36,7 +35,6 @@ public class SkelControl : MonoBehaviour {
 	{
 		anim = GetComponent<Animator>();
 		agent = GetComponent<NavMeshAgent>();
-		targetpos = target.transform;
 		
 		
 		chaseBehavior = GetComponent<chaseAction>();
@@ -87,7 +85,7 @@ public class SkelControl : MonoBehaviour {
 				startBehavior.enabled = false;
 			}
 			//else if too far away, just walk
-			else if (Vector3.Distance(targetpos.position, this.transform.position) > 20)
+			else if (Vector3.Distance(target.transform.position, this.transform.position) > 20)
 			{
 				Walk();
 			}
@@ -95,7 +93,7 @@ public class SkelControl : MonoBehaviour {
 			{
 				startBehavior.enabled = false;
 				
-				Vector3 direction = targetpos.position - this.transform.position;
+				Vector3 direction = target.transform.position - this.transform.position;
 				//If two far, chase target
 				if(direction.magnitude > attackRange)
 				{
@@ -121,12 +119,17 @@ public class SkelControl : MonoBehaviour {
 	//Functions activating behaviors
 	public void Chase()
 	{
-		agent.speed = chaseBehavior.speed;	//access to speed parameter of chaseAction
-		
-		dieBehavior.enabled = false;
-		chaseBehavior.enabled = true;
-		attackBehavior.enabled = false;
-		startBehavior.enabled = false;
+		//activate only if not already activated
+		if(!chaseBehavior.enabled)
+		{
+			
+			agent.speed = chaseBehavior.speed;	//access to speed parameter of chaseAction
+			
+			dieBehavior.enabled = false;
+			chaseBehavior.enabled = true;
+			attackBehavior.enabled = false;
+			startBehavior.enabled = false;
+		}
 	}
 	
 	public void Attack()
@@ -139,12 +142,16 @@ public class SkelControl : MonoBehaviour {
 	
 	public void Walk()	//walk = start (but start already used)
 	{
-		agent.speed = startBehavior.speed;	//access to speed parameter of startAction
-		
-		dieBehavior.enabled = false;
-		chaseBehavior.enabled = false;
-		attackBehavior.enabled = false;
-		startBehavior.enabled = true;
+		//activate only if not already activated
+		if(!startBehavior.enabled)
+		{
+			agent.speed = startBehavior.speed;	//access to speed parameter of startAction
+			
+			dieBehavior.enabled = false;
+			chaseBehavior.enabled = false;
+			attackBehavior.enabled = false;
+			startBehavior.enabled = true;
+		}
 	}
 	
 	

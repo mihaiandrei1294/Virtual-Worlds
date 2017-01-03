@@ -8,10 +8,6 @@ public class StartFM : MonoBehaviour {
 
     //public SteerForPoint steerToSoP;
 
-
-    public GameObject target;
-
-
 	private FootmanControl parent; //main script that will have useful variables, used to handle animations
 	
 	
@@ -23,7 +19,6 @@ public class StartFM : MonoBehaviour {
 	{
 		parent = GetComponent<FootmanControl>();
 
-		target = parent.target;
 		
 		agent = GetComponent<NavMeshAgent>();
 	}
@@ -31,16 +26,13 @@ public class StartFM : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Debug.Log("START FM to " + target.name +" with speed "+ agent.speed.ToString());
+		//Debug.Log("START FM to " + target.transform.position.ToString() +" with speed "+ agent.speed.ToString());
 		
-		agent.SetDestination(target.transform.position);
-		
+		agent.SetDestination(parent.target.transform.position);
+		//agent.Resume();
 		//play run animation
 		parent.WalkAnim();
 	}
 	
-	public void setTarget(GameObject newtarget)
-	{
-		this.target = newtarget;
-	}
+	
 }

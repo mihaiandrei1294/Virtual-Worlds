@@ -7,10 +7,7 @@ using System.Collections;
 
 public class startAction : MonoBehaviour {
 
-	private GameObject target;
-	private Transform targetpos;
-
-
+	
 	private SkelControl parent; //main script that will have useful variables, used to handle animations
 	
 	
@@ -21,9 +18,6 @@ public class startAction : MonoBehaviour {
 	void Start ()
 	{
 		parent = GetComponent<SkelControl>();
-
-		target = parent.target;
-		targetpos = target.transform;
 		
 		agent = GetComponent<NavMeshAgent>();
 	}
@@ -31,7 +25,7 @@ public class startAction : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		agent.SetDestination(targetpos.position);
+		agent.SetDestination(parent.target.transform.position);
 		
 		//play run animation
 		parent.WalkAnim();

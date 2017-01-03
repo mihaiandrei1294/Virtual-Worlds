@@ -4,10 +4,6 @@ using System.Collections;
 public class chaseAction : MonoBehaviour 
 {
 
-	private GameObject target;
-	private Transform targetpos;
-
-
 	private SkelControl parent; //main script that will have useful variables, used to handle animations
 	
 	
@@ -19,8 +15,6 @@ public class chaseAction : MonoBehaviour
 	{
 		parent = GetComponent<SkelControl>();
 
-		target = parent.target;
-		targetpos = target.transform;
 		
 		agent = GetComponent<NavMeshAgent>();
 	}
@@ -28,8 +22,8 @@ public class chaseAction : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
-		agent.SetDestination(targetpos.position);
+		Debug.Log("CHASE");
+		agent.SetDestination(parent.target.transform.position);
 		
 		//play run animation
 		parent.RunAnim();
