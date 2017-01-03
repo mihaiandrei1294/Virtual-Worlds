@@ -1,127 +1,178 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnitySteer.Behaviors;
 
 public class FootmanControl : MonoBehaviour {
 
+	//////////////////
+	//  ATTRIBUTES  //
+	//////////////////
 
-    //
-    public Animator control;
-    public Biped biped;
-    /*
-    public SteerForAlignment steerForAlignement;
-    public SteerForCohesion steerForCohesion;
-    public SteerForNeighborGroup steerForNGroup;
-    public SteerForSphericalObstacles steerForObstacles;
-    */
+	
+	public bool hasSoP = false;	//boolean indicating if the robot has the Staff of Pain
+	
+	public GameObject target;
+	private Transform targetpos;
+	private Animator anim;
 
-    // scripts
-    private StartFM startFM;
-    private PickAction pickSoP;
-    private WalkBackAction walkBackFM;
-
-    //
-    private Vector3 actualPosition;
-    private Vector3 sopPosition;
-
-
-    // Use this for initialization
-    void Start () {
-        biped = GetComponent<Biped>();
-        biped.enabled = true;
-        biped.MaxSpeed = 2.5f;
-
-
-        /*
-        //footmen group initialization
-        steerForCohesion = GetComponent<SteerForCohesion>();
-        steerForCohesion.enabled = false;
-
-        steerForObstacles = GetComponent<SteerForSphericalObstacles>();
-        steerForObstacles.enabled = true;
-
-        steerForAlignement = GetComponent<SteerForAlignment>();
-        steerForAlignement.enabled = false;
-
-        steerForNGroup = GetComponent<SteerForNeighborGroup>();
-        steerForNGroup.enabled = true;
-        */
-
-        walkBackFM = GetComponent<WalkBackAction>();
-        startFM = GetComponent<StartFM>();
-        
-        //controller initialization
-        control = GetComponent<Animator>();
-        control.SetBool("SoP", false);
-        control.SetBool("SkeletonSeen", false);
-        control.SetBool("BigTreeReached", false);
-        control.SetBool("Killed", false);
-    }
+	
+	//objects references
+	private GameObject SoP;
+	private GameObject skeleton;
+	private GameObject bigTree;
+	
+	//scripts
+	private StartFM startBehavior;
+	private PickAction pickBehavior;
+	//private dieAction dieBehavior;
+	
+	
+	private NavMeshAgent agent;
+	
+	//some private variable about animation boolean names
+	private string idle = "isStanding";
+	private string run = "isRunning";
+	private string dead = "isDying";
+	private string walk = "isWalking";
+	
+	
+	
+	
+	///////////////
+	//  METHODS  //
+	///////////////
+	
+	// Use this for initialization
+	void Start ()
+	{
+		anim = GetComponent<Animator>();
+		agent = GetComponent<NavMeshAgent>();
+		targetpos = target.transform;
+		
+		//getting objects references
+		SoP = GameObject.FindWithTag("SoP");
+		skeleton = GameObject.FindWithTag("skeleton");
+		bigTree = GameObject.FindWithTag("bigTree");
+		
+		pickBehavior = GetComponent<PickAction>();
+		//dieBehavior = GetComponent<dieAction>();
+		startBehavior = GetComponent<StartFM>();
+		
+		startBehavior.enabled = false;
+		pickBehavior.enabled = false;
+		
+		//
+	}
 	
 	// Update is called once per frame
-	void Update ()
-    {
+	void Update () 
+	{
+		if (Input.GetKeyDown("q"))
+		{
+			Debug.Log("Walk to SOP");
+			Walk(SoP);
+		}
+		
+		//if see skeleton
+		if (Vector3.Distance(this.transform.position, skeleton.transform.position) < 20)
+		{
+			//if the footmen has the sop
+			if(hasSoP)
+			{
+				//run away in direction of tree
+				RunAway(bigTree);
+			}
+			else	//no sop
+			{
+				RunAway(SoP);
+			}
+		}
+		else	//no skeleton
+		{
+			//if the footmen has the sop
+			if(hasSoP)
+			{
+				//walk to big tree
+				Walk(bigTree);
+			}
+			else	//no sop
+			{
+				//if too far away to pick
+				if (Vector3.Distance(this.transform.position, SoP.transform.position) > 3)
+				{
+					Walk(SoP);	//move to SoP
+				}
+				else	//can pick !
+				{
+					Pick(SoP);
+				}
+			}
+		}
+	}
+	
+	
+	
 
-        /*
-        Debug.Log("SOP:");
-        Debug.Log(control.GetBool("SoP"));
-        Debug.Log("SkeletonSeen:");
-        Debug.Log(control.GetBool("SkeletonSeen"));
-        Debug.Log("BigTreeReached:");
-        Debug.Log(control.GetBool("BigTreeReached"));
-        Debug.Log("BigTreeReached:");
-        Debug.Log(control.GetBool("BigTreeReached"));
-        */
-        actualPosition = this.transform.position;
-
-        if (control.GetBool("SoP") == false && 
-            control.GetBool("Killed") == false) {
-            startFM.StartWalking();
-        }
-
-
-
-        if (control.GetBool("SoP") == true &&
-            control.GetBool("BigTreeReached") == false &&
-            control.GetBool("Killed") == false)
-        {
-            walkBackFM.Walking();
-        }
-
-        //Skeleton seen seen
-
-        if (Input.anyKeyDown)
-        {
-            Debug.Log("H pressed");
-            setSkeletonSeen();
-        }
-
-        
-
-    }
-
-
-    void setSkeletonSeen()
-    {
-        if (GameObject.Find("Yellow_Footman_1").GetComponent<Animator>().GetBool("Killed") == false)
-        {
-            GameObject.Find("Yellow_Footman_1").GetComponent<Animator>().SetBool("SkeletonSeen", true);
-        }
-        if (GameObject.Find("Yellow_Footman_2").GetComponent<Animator>().GetBool("Killed") == false)
-        {
-            GameObject.Find("Yellow_Footman_2").GetComponent<Animator>().SetBool("SkeletonSeen", true);
-        }
-        if (GameObject.Find("Yellow_Footman_3").GetComponent<Animator>().GetBool("Killed") == false)
-        {
-            GameObject.Find("Yellow_Footman_3").GetComponent<Animator>().SetBool("SkeletonSeen", true);
-        }
-        if (GameObject.Find("Yellow_Footman_4").GetComponent<Animator>().GetBool("Killed") == false)
-        {
-            GameObject.Find("Yellow_Footman_4").GetComponent<Animator>().SetBool("SkeletonSeen", true);
-        }
-        if (GameObject.Find("Red_Footman").GetComponent<Animator>().GetBool("Killed") == false)
-        {
-            GameObject.Find("Red_Footman").GetComponent<Animator>().SetBool("SkeletonSeen", true);
-        }
-    }
+	
+	
+	//Functions activating behaviors
+	public void Walk(GameObject newtarget)	//walk = start (but start already used)
+	{
+		
+		
+		Debug.Log("WALK TO " + newtarget.name);
+		agent.speed = startBehavior.speed;	//access to speed parameter of startAction
+		startBehavior.setTarget(newtarget);
+		
+		pickBehavior.enabled = false;
+		startBehavior.enabled = true;
+		
+	}
+	
+	public void RunAway(GameObject newtarget)
+	{
+		int useless = 1;
+	}
+	
+	public void Pick(GameObject newtarget)
+	{
+		Debug.Log("PICK " + newtarget.name);
+		pickBehavior.enabled = true;
+		startBehavior.enabled = false;
+		int useless = 1;
+		hasSoP = true;
+	}
+	
+	//Functions playing animations
+	//Note: Animation management is done in the behaviors and not in this file if possible
+	public void IdleAnim()
+	{
+		anim.SetBool(idle, true);
+		anim.SetBool(run, false);
+		anim.SetBool(dead, false);
+		anim.SetBool(walk, false);
+	}
+	
+	public void RunAnim()
+	{
+		anim.SetBool(idle, false);
+		anim.SetBool(run, true);
+		anim.SetBool(dead, false);
+		anim.SetBool(walk, false);
+	}
+	
+	public void DieAnim()
+	{
+		anim.SetBool(idle, false);
+		anim.SetBool(run, false);
+		anim.SetBool(dead, true);
+		anim.SetBool(walk, false);
+	}
+	
+	public void WalkAnim()
+	{
+		anim.SetBool(idle, false);
+		anim.SetBool(run, false);
+		anim.SetBool(dead, false);
+		anim.SetBool(walk, true);
+	}
 }

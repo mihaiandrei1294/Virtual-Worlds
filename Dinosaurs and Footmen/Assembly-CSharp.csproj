@@ -49,6 +49,7 @@
      <Compile Include="Assets\Flocking Unity\UnityFlockController.cs" />
      <Compile Include="Assets\Footman Control\FleeAction.cs" />
      <Compile Include="Assets\Footman Control\FootmanControl.cs" />
+     <Compile Include="Assets\Footman Control\OldFootmanControl.cs" />
      <Compile Include="Assets\Footman Control\PickAction.cs" />
      <Compile Include="Assets\Footman Control\RedFlock.cs" />
      <Compile Include="Assets\Footman Control\RedLead.cs" />

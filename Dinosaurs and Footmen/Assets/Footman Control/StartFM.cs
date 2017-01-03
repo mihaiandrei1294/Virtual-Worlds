@@ -1,30 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnitySteer.Behaviors;
+//using UnitySteer.Behaviors;
 
+
+//walk to target
 public class StartFM : MonoBehaviour {
 
-    public SteerForPoint steerToSoP;
+    //public SteerForPoint steerToSoP;
 
 
-    // Use this for initialization
-    void Start()
-    {
-        steerToSoP = GetComponent<SteerForPoint>();
-        steerToSoP.TargetPoint = GameObject.Find("StaffOfPain").transform.position;
-        steerToSoP.enabled = false;
-        
-    }
+    public GameObject target;
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
+	private FootmanControl parent; //main script that will have useful variables, used to handle animations
+	
+	
+	private NavMeshAgent agent;
+	public float speed = 4f;
+	
+	// Use this for initialization
+	void Start ()
+	{
+		parent = GetComponent<FootmanControl>();
 
-    public void StartWalking()
-    {
-        steerToSoP.TargetPoint = GameObject.Find("StaffOfPain").transform.position;
-        steerToSoP.enabled = true;
-    }
+		target = parent.target;
+		
+		agent = GetComponent<NavMeshAgent>();
+	}
+	
+	// Update is called once per frame
+	void Update ()
+	{
+		Debug.Log("START FM to " + target.name +" with speed "+ agent.speed.ToString());
+		
+		agent.SetDestination(target.transform.position);
+		
+		//play run animation
+		parent.WalkAnim();
+	}
+	
+	public void setTarget(GameObject newtarget)
+	{
+		this.target = newtarget;
+	}
 }
