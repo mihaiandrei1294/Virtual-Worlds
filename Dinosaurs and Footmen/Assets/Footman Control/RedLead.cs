@@ -6,18 +6,20 @@ public class RedLead : MonoBehaviour {
 
 
 	public playerControl control;
-	public SteerForPoint steerForPoint;
-	public Biped biped;
+    public SteerForPoint steerForPoint;
+    public SteerForPursuit steerForPursuit;
+    public Biped biped;
 	public SteerForEvasion steerForFear;
 	public SteerForAlignment steerForAlignement;	
 	public SteerForCohesion steerForCohesion;
 	public SteerForNeighborGroup steerForNGroup;
 	public SteerForSphericalObstacles steerForObstacles;
 	public SteerForReverseTether steerForReverseTheter;
-	public GameObject skeleton;
+    public GameObject skeleton;
+    public GameObject sop;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 		steerForReverseTheter = GetComponent<SteerForReverseTether> ();
 		steerForReverseTheter.enabled = false;
@@ -30,10 +32,11 @@ public class RedLead : MonoBehaviour {
 		steerForFear.enabled = false;
 
 
-		steerForPoint = GetComponent<SteerForPoint> ();
-		steerForPoint.enabled = true;
+        steerForPoint = GetComponent<SteerForPoint>();
+        steerForPoint.enabled = false;
 
-		steerForCohesion = GetComponent<SteerForCohesion> ();
+
+        steerForCohesion = GetComponent<SteerForCohesion> ();
 		steerForCohesion.enabled = false;
 
 
@@ -47,7 +50,9 @@ public class RedLead : MonoBehaviour {
 		steerForNGroup = GetComponent<SteerForNeighborGroup> ();
 		steerForNGroup.enabled = true;
 
-		steerForPoint.TargetPoint = new Vector3(215, 0, 107); //z changed from 88 to 107
+        Transform sopTransform = sop.GetComponent<Transform>();
+        Vector3 sopPosition = sopTransform.position;
+        steerForPoint.TargetPoint = sopPosition; //z changed from 88 to 107
 		control.Walk ();
 
 
@@ -64,9 +69,7 @@ public class RedLead : MonoBehaviour {
 		if (Vector3.Distance (steerForPoint.TargetPoint, transform.position) < 0.5f) {
 
 			//steerForPoint.TargetPoint = generateRandomTargetPoint (new Vector2 (160.0f, 280.0f), new Vector2 (180.0f, 200.0f));
-
-
-			steerForPoint.enabled = false;
+            steerForPursuit.enabled = false;
 			steerForReverseTheter.enabled = true;
 			control.Run ();
 			biped.MaxSpeed = 6;
