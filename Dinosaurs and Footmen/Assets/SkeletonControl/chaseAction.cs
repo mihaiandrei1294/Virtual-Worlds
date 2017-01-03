@@ -8,7 +8,7 @@ public class chaseAction : MonoBehaviour
 	private Transform targetpos;
 
 
-	private tempSkelControl parent; //main script that will have useful variables, used to handle animations
+	private SkelControl parent; //main script that will have useful variables, used to handle animations
 	
 	
 	private NavMeshAgent agent;
@@ -17,7 +17,7 @@ public class chaseAction : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		parent = GetComponent<tempSkelControl>();
+		parent = GetComponent<SkelControl>();
 
 		target = parent.target;
 		targetpos = target.transform;

@@ -22,7 +22,7 @@ public class attackAction : MonoBehaviour {
 	void Start ()
 	{
 		anim = GetComponent<Animator>();
-		target = this.GetComponent<tempSkelControl>().target;
+		target = this.GetComponent<SkelControl>().target;
 	}
 	
 	// Update is called once per frame

@@ -47,8 +47,13 @@
   <ItemGroup>
      <Compile Include="Assets\Flocking Unity\UnityFlock.cs" />
      <Compile Include="Assets\Flocking Unity\UnityFlockController.cs" />
+     <Compile Include="Assets\Footman Control\FleeAction.cs" />
+     <Compile Include="Assets\Footman Control\FootmanControl.cs" />
+     <Compile Include="Assets\Footman Control\PickAction.cs" />
      <Compile Include="Assets\Footman Control\RedFlock.cs" />
      <Compile Include="Assets\Footman Control\RedLead.cs" />
+     <Compile Include="Assets\Footman Control\StartFM.cs" />
+     <Compile Include="Assets\Footman Control\WalkBackAction.cs" />
      <Compile Include="Assets\Footman\Script\MaterialChange.cs" />
      <Compile Include="Assets\Footman\Script\playerControl.cs" />
      <Compile Include="Assets\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />
@@ -91,13 +96,14 @@
      <Compile Include="Assets\Handpainted Forest Environment Free Sample\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\Handpainted Forest Environment Free Sample\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
      <Compile Include="Assets\Jurassic Pack\-Demo\comp_cs.cs" />
+     <Compile Include="Assets\SkeletonControl\OldskeletonControl.cs" />
+     <Compile Include="Assets\SkeletonControl\SkelControl.cs" />
      <Compile Include="Assets\SkeletonControl\attackAction.cs" />
      <Compile Include="Assets\SkeletonControl\chaseAction.cs" />
      <Compile Include="Assets\SkeletonControl\dieAction.cs" />
-     <Compile Include="Assets\SkeletonControl\skeletonControl.cs" />
      <Compile Include="Assets\SkeletonControl\startAction.cs" />
-     <Compile Include="Assets\SkeletonControl\tempSkelControl.cs" />
      <Compile Include="Assets\StaffControl\StaffControl.cs" />
+     <Compile Include="Assets\TriggerStaffOfPain.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\AngleCosineAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\RangeAttribute.cs" />
      <Compile Include="Assets\UnitySteer-3.0.0-RC2\Attributes\Vector3ToggleAttribute.cs" />

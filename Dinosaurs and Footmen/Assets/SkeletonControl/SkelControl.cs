@@ -3,7 +3,7 @@ using System.Collections;
 
 //dummy behavior controller before having behaviour tree
 
-public class tempSkelControl : MonoBehaviour {
+public class SkelControl : MonoBehaviour {
 
 	public GameObject target;
 	private Transform targetpos;

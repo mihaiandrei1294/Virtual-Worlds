@@ -3,13 +3,13 @@ using System.Collections;
 
 public class dieAction : MonoBehaviour {
 
-	private tempSkelControl parent; //main script that will have useful variables, used to handle animations
+	private SkelControl parent; //main script that will have useful variables, used to handle animations
 
 
 	// Use this for initialization
 	void Start ()
 	{
-		parent = GetComponent<tempSkelControl>();
+		parent = GetComponent<SkelControl>();
 	}
 	
 	// Update is called once per frame
