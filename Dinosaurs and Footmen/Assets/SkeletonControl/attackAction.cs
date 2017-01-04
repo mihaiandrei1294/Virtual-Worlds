@@ -17,10 +17,7 @@ public class attackAction : MonoBehaviour {
 	private SkelControl parent; //main script that will have useful variables, used to handle animations
 	
 	
-	//some private variable about animation boolean names
-	private string run = "isRunning";
-	private string attack = "isAttacking";
-
+	
 	// Use this for initialization
 	void Start ()
 	{

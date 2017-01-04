@@ -6,20 +6,29 @@ public class StaffControl : MonoBehaviour {
 	public Vector3[] startPositions;	//array of possible starting positions of the staff of pain
 	
 	private Vector3 defaultPosition = new Vector3(250, 0, 149); //just a default position in case no position has been set
-    public bool m_isPicked = false;
-    private string player = "";
+    
+	public bool m_isPicked = false;
+	private Vector3 m_offset = new Vector3(0,1.3f,0.5f);
+	
 	
 	public GameObject holder;	//reference of the object that holds the staff (null by default)
+	
+	private GameObject skeleton;
+	private SkelControl skelControl;	//used to access staff info
+	
 	
 	//components
 	private CapsuleCollider m_collider;
 	
-	private Vector3 m_offset = new Vector3(0,1.3f,0.5f);
+	
 	
 	// Use this for initialization
 	void Start () {
 		
 		m_collider = GetComponent<CapsuleCollider>();
+		skeleton = GameObject.FindWithTag("skeleton");
+		skelControl = (SkelControl) skeleton.GetComponent(typeof(SkelControl));
+		
 		
 		if(startPositions.Length == 0)
 		{
@@ -54,6 +63,9 @@ public class StaffControl : MonoBehaviour {
 		m_isPicked = true;
 		holder = fromObject;
 		m_collider.enabled = false;
+		
+		//Enrage the skeleton to the holder
+		skelControl.setTarget(holder);
 	}
 	
 	//drop the staff on the ground

@@ -27,9 +27,28 @@ public class FleeAction : MonoBehaviour {
 		
 		Vector3 fleePoint = gameObject.transform.position + fleeVector +targetVector;		// = footPos + fleeVector
 		
-	
+		//This fleePoint can be on an obstacle. This can causes lag for SetDestination method to finish as it takes time to figure out a path is impossible.
+		//In order to solve that, we first do a RayCast to the target and 
+		bool blocked = false;
+		NavMeshHit hit;
+		
+		int numBlock = 1;
+		
+		do
+		{
+			numBlock++;
+			blocked = NavMesh.Raycast(fleePoint - new Vector3(5f, 0f, 5f),fleePoint, out hit, NavMesh.AllAreas);
+			//Debug.DrawLine(gameObject.transform.position, fleePoint, blocked ? Color.red : Color.green);
+			if (blocked)
+			{
+				//Debug.DrawRay(hit.position, Vector3.up*1000, Color.red);
+				fleePoint = fleePoint - new Vector3(5f, 0f, 5f);
+			}
+			//Debug.Log(hit.position.ToString() + " == " + fleePoint.ToString());*/
+			
+		}while(blocked && numBlock < 10);
+		
 		agent.SetDestination(fleePoint);
-		//agent.Resume();
 		//play run animation
 		parent.RunAnim();
 	}

@@ -18,6 +18,7 @@ public class FootmanControl : MonoBehaviour {
 	
 	private float m_rangeView = 20f;
 	public bool m_isDead = false;
+	private CapsuleCollider m_collider;
 	
 	//objects references
 	private GameObject SoP;
@@ -52,8 +53,12 @@ public class FootmanControl : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		
+		
+		
 		anim = GetComponent<Animator>();
 		agent = GetComponent<NavMeshAgent>();
+		m_collider = GetComponent<CapsuleCollider>();
 		
 		//getting objects references
 		SoP = GameObject.FindWithTag("SoP");
@@ -82,6 +87,7 @@ public class FootmanControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		
 		
 		//On K pressed, kill the footman
 		if (!m_isDead && Input.GetKeyDown("k"))
@@ -244,7 +250,9 @@ public class FootmanControl : MonoBehaviour {
 			dieBehavior.enabled = true;
 			
 			agent.speed = 0;
-			agent.Stop();
+			agent.ResetPath();
+			
+			m_collider.enabled = false;
 			
 			//setDead();
 		}

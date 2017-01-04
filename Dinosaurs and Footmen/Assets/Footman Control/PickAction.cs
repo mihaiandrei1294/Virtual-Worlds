@@ -7,7 +7,7 @@ public class PickAction : MonoBehaviour {
 
 	private GameObject SoP;
 	private StaffControl staff;	//used to access staff info
-	
+
 	
 	// Use this for initialization
 	void Start () 
