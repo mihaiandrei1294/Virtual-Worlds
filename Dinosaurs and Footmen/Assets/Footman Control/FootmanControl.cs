@@ -243,6 +243,7 @@ public class FootmanControl : MonoBehaviour {
 			fleeBehavior.enabled = false;
 			dieBehavior.enabled = true;
 			
+			agent.speed = 0;
 			agent.Stop();
 			
 			//setDead();

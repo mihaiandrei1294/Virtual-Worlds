@@ -47,6 +47,7 @@ public class SkelControl : MonoBehaviour {
 		dieBehavior = GetComponent<dieAction>();
 		startBehavior = GetComponent<startAction>();
 		
+		SoP = GameObject.FindWithTag("SoP");
 		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
 		
 		GameObject[] footmenArr = GameObject.FindGameObjectsWithTag("footman");

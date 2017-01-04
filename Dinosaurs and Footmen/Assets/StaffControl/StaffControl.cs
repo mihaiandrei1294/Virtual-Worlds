@@ -28,7 +28,7 @@ public class StaffControl : MonoBehaviour {
 		else
         {
             //this.transform.position = startPositions[Random.Range(0, startPositions.Length)];
-            //this.transform.position = defaultPosition;
+            this.transform.position = defaultPosition;
         }
 
 		
