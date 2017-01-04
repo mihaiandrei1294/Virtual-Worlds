@@ -38,19 +38,31 @@ public class attackAction : MonoBehaviour {
 		
 		if(!currState.IsName("Base.Attack"))
 		{
-			anim.SetBool(attack, true);
-			anim.SetBool(run, false);
+			//anim.SetBool(attack, true);
+			//anim.SetBool(run, false);
+			parent.AttackAnim();
 			hasHit = false;
 		}
 		
 		//Debug.Log(animDuration);
 		
-		if (!hasHit && animDuration > 0.35f && animDuration < 0.45f && !anim.IsInTransition(0))
+		
+		if (!hasHit && animDuration > 0.35f && animDuration < 0.55f && !anim.IsInTransition(0))
 		{
 			hasHit = true;
-			Destroy(parent.target);
+
+			GameObject footman = parent.target;
+			//Debug.Log("ON VA TUER "+ footman.name);
+			FootmanControl footControl = (FootmanControl) footman.GetComponent<FootmanControl>();
+			footControl.Die();
+			
+			//remove it from the list
+			parent.footmenList.Remove(footman);
+			parent.setTarget(null);
+
+			
 		}
-		else if (hasHit && animDuration > 0.45f)
+		else if (hasHit && animDuration > 0.55f)
 		{
 			hasHit = false;
 		}

@@ -21,7 +21,7 @@ public class FleeAction : MonoBehaviour {
 	void Update () 
 	{
 		Vector3 fleeVector = gameObject.transform.position - skeleton.transform.position;	//= - (skelPos - footPos)
-		fleeVector =  fleeVector * (parent.rangeView() - Vector3.Distance(this.transform.position, skeleton.transform.position));	//the closer the skeleton, the more we run away and forget about our target
+		fleeVector =  fleeVector * (1 + parent.rangeView() - Vector3.Distance(this.transform.position, skeleton.transform.position));	//the closer the skeleton, the more we run away and forget about our target
 		
 		Vector3 targetVector = parent.target.transform.position - gameObject.transform.position;
 		

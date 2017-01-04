@@ -55,6 +55,7 @@
      <Compile Include="Assets\Footman Control\RedLead.cs" />
      <Compile Include="Assets\Footman Control\StartFM.cs" />
      <Compile Include="Assets\Footman Control\WalkBackAction.cs" />
+     <Compile Include="Assets\Footman Control\dieFootmanAction.cs" />
      <Compile Include="Assets\Footman\Script\MaterialChange.cs" />
      <Compile Include="Assets\Footman\Script\playerControl.cs" />
      <Compile Include="Assets\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />

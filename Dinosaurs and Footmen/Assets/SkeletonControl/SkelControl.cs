@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using  System.Collections.Generic;
+using System.Linq;
 //dummy behavior controller before having behaviour tree
 
 public class SkelControl : MonoBehaviour {
@@ -8,8 +9,9 @@ public class SkelControl : MonoBehaviour {
 	public GameObject target;
 	private Animator anim;
 
+
 	public float attackRange = 4;	//attack range
-	
+	public List<GameObject> footmenList;	//array of footmen
 	
 	//scripts
 	private chaseAction chaseBehavior;
@@ -17,6 +19,10 @@ public class SkelControl : MonoBehaviour {
 	private dieAction dieBehavior;
 	private startAction startBehavior;
 
+	private GameObject SoP;
+	private StaffControl staff;	//used to access staff info
+	
+	
 	private NavMeshAgent agent;
 	
 	//some private variable about animation boolean names
@@ -36,11 +42,15 @@ public class SkelControl : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		agent = GetComponent<NavMeshAgent>();
 		
-		
 		chaseBehavior = GetComponent<chaseAction>();
 		attackBehavior = GetComponent<attackAction>();
 		dieBehavior = GetComponent<dieAction>();
 		startBehavior = GetComponent<startAction>();
+		
+		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
+		
+		GameObject[] footmenArr = GameObject.FindGameObjectsWithTag("footman");
+		footmenList = footmenArr.ToList();
 		
 		chaseBehavior.enabled = false;
 		attackBehavior.enabled = false;
@@ -51,6 +61,7 @@ public class SkelControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		
 		//On F pressed, kill the skeleton
 		if (!isDead && Input.GetKeyDown("f"))
 		{
@@ -73,6 +84,13 @@ public class SkelControl : MonoBehaviour {
 
 		if(!isDead)
 		{
+			//assigning new target if no target
+			if(target == null && footmenList.Count > 0)
+			{
+				target = footmenList[0];
+			}
+			
+			
 			
 			// if no target
 			if(target == null)
@@ -84,10 +102,17 @@ public class SkelControl : MonoBehaviour {
 				attackBehavior.enabled = false;
 				startBehavior.enabled = false;
 			}
-			//else if too far away, just walk
+			//else if too far away, just walk if SoP safe, else RUN !
 			else if (Vector3.Distance(target.transform.position, this.transform.position) > 20)
 			{
-				Walk();
+				if(staff.isPicked())
+				{
+					Chase();
+				}
+				else
+				{
+					Walk();
+				}
 			}
 			else //If see the target 
 			{
@@ -115,6 +140,11 @@ public class SkelControl : MonoBehaviour {
 		}
 	}
 	
+	
+	public void setTarget(GameObject newtarget)
+	{
+		this.target = newtarget;
+	}
 	
 	//Functions activating behaviors
 	public void Chase()
@@ -171,6 +201,15 @@ public class SkelControl : MonoBehaviour {
 		anim.SetBool(idle, false);
 		anim.SetBool(run, true);
 		anim.SetBool(attack, false);
+		anim.SetBool(dead, false);
+		anim.SetBool(walk, false);
+	}
+	
+	public void AttackAnim()
+	{
+		anim.SetBool(idle, false);
+		anim.SetBool(run, false);
+		anim.SetBool(attack, true);
 		anim.SetBool(dead, false);
 		anim.SetBool(walk, false);
 	}

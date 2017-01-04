@@ -1,30 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PickAction : MonoBehaviour {
+public class dieFootmanAction : MonoBehaviour {
 
 	private FootmanControl parent; //main script that will have useful variables, used to handle animations
 
 	private GameObject SoP;
 	private StaffControl staff;	//used to access staff info
 	
-	
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
 		parent = GetComponent<FootmanControl>();
 		
 		SoP = GameObject.FindWithTag("SoP");
-		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));	
+		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!staff.isPicked())	//if we can pick it
+		parent.DieAnim();
+		
+		//if has the SoP, drop it
+		if(parent.hasSoP())
 		{
-			staff.attachTo(gameObject);
-			parent.setHasSoP(true);
+			parent.setHasSoP(false);
+			staff.drop();
 		}
+		
+//}
 	}
 }

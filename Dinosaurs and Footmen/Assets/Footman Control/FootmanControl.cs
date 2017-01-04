@@ -8,27 +8,33 @@ public class FootmanControl : MonoBehaviour {
 	//////////////////
 
 	
-	public bool hasSoP = false;	//boolean indicating if the robot has the Staff of Pain
 	
 	public GameObject target;
 	private Animator anim;
 
+	
+	public bool m_hasSoP = false;	//boolean indicating if the agent has the Staff of Pain
+
+	
 	private float m_rangeView = 20f;
+	public bool m_isDead = false;
 	
 	//objects references
 	private GameObject SoP;
 	private GameObject skeleton;
 	private GameObject bigTree;	//Note : We do not go directly to the big tree but to a Goal location in front of it
 	
+	private NavMeshAgent agent;
+	
 	//scripts
 	private StartFM startBehavior;
 	private PickAction pickBehavior;
 	private FleeAction fleeBehavior;
-	//private dieAction dieBehavior;
+	private dieFootmanAction dieBehavior;
 	
 	private StaffControl staff;	//used to access staff info
 	
-	private NavMeshAgent agent;
+	
 	
 	//some private variable about animation boolean names
 	private string idle = "isStanding";
@@ -37,11 +43,7 @@ public class FootmanControl : MonoBehaviour {
 	private string walk = "isWalking";
 	
 	
-	private bool forced = false;
 	
-	
-	private Vector3 pos1 = new Vector3(220, 0, 157);
-	private Vector3 pos2 = new Vector3(250, 0, 149);
 	
 	///////////////
 	//  METHODS  //
@@ -59,53 +61,38 @@ public class FootmanControl : MonoBehaviour {
 		bigTree = GameObject.FindWithTag("bigTree");
 		
 		pickBehavior = GetComponent<PickAction>();
-		//dieBehavior = GetComponent<dieAction>();
+		dieBehavior = GetComponent<dieFootmanAction>();
 		startBehavior = GetComponent<StartFM>();
 		fleeBehavior = GetComponent<FleeAction>();
 		
 		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
 		
 		//then initialization
-		agent.speed = startBehavior.speed;
 		startBehavior.enabled = false;
 		pickBehavior.enabled = false;
 		fleeBehavior.enabled = false;
+		dieBehavior.enabled = false;
 		
-		//
+		/*if(m_isDead)
+		{
+			Die();
+		}*/
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown("q"))
+		
+		//On K pressed, kill the footman
+		if (!m_isDead && Input.GetKeyDown("k"))
 		{
-			Debug.Log("Walk Forced");
-			agent.SetDestination(bigTree.transform.position);
+			Debug.Log("DIE !");
 			
-			startBehavior.enabled = false;
-			pickBehavior.enabled = false;
-			
-			forced = true;
+			m_isDead = true;
 		}
 		
-		if (Input.GetKeyDown("j"))
-		{
-			Debug.Log(target.name);
-			Debug.Log(agent.destination);
-		}
-		
-		if (Input.GetKeyDown("c"))
-		{
-			agent.SetDestination(pos1);
-		}
-		
-		if (Input.GetKeyDown("v"))
-		{
-			agent.SetDestination(pos2);
-		}
-		
-		
-		if(!forced)
+
+		if(!m_isDead)
 		{
 			//Debug.Log("Distance : " + Vector3.Distance(this.transform.position, skeleton.transform.position).ToString());
 			//if see skeleton
@@ -155,9 +142,18 @@ public class FootmanControl : MonoBehaviour {
 				}
 			}
 		}
+		
+		else //play dead
+		{
+			Die();
+		
+		}
 	}
 	
-	
+	public void setDead()
+	{
+		this.m_isDead = true;
+	}
 	
 	public void setTarget(GameObject newtarget)
 	{
@@ -169,6 +165,20 @@ public class FootmanControl : MonoBehaviour {
 		return m_rangeView;
 	}
 	
+	public bool isDead()
+	{
+		return m_isDead;
+	}
+	
+	public bool hasSoP()
+	{
+		return m_hasSoP;
+	}
+	
+	public void setHasSoP(bool newbool)
+	{
+		this.m_hasSoP = newbool;
+	}
 	
 	//Functions activating behaviors
 	public void Walk(GameObject newtarget)	//walk = start (but start already used)
@@ -183,6 +193,7 @@ public class FootmanControl : MonoBehaviour {
 			pickBehavior.enabled = false;
 			startBehavior.enabled = true;
 			fleeBehavior.enabled = false;
+			dieBehavior.enabled = false;
 		}
 	}
 	
@@ -198,6 +209,7 @@ public class FootmanControl : MonoBehaviour {
 			pickBehavior.enabled = false;
 			startBehavior.enabled = false;
 			fleeBehavior.enabled = true;
+			dieBehavior.enabled = false;
 		}
 		int useless = 1;
 		//Debug.Log("RUN AWAYYYY");
@@ -214,7 +226,26 @@ public class FootmanControl : MonoBehaviour {
 			pickBehavior.enabled = true;
 			startBehavior.enabled = false;
 			fleeBehavior.enabled = false;
+			dieBehavior.enabled = false;
 			int useless = 1;
+		}
+	}
+	
+	public void Die()
+	{
+		//activate only if not already activated
+		if(!dieBehavior.enabled)
+		{
+			this.m_isDead = true;
+			Debug.Log("Die");
+			pickBehavior.enabled = false;
+			startBehavior.enabled = false;
+			fleeBehavior.enabled = false;
+			dieBehavior.enabled = true;
+			
+			agent.Stop();
+			
+			//setDead();
 		}
 	}
 	
