@@ -18,8 +18,6 @@ public class StartFM : MonoBehaviour {
 	void Start ()
 	{
 		parent = GetComponent<FootmanControl>();
-
-		
 		agent = GetComponent<NavMeshAgent>();
 	}
 	

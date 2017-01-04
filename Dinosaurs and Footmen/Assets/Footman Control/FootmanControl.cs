@@ -13,6 +13,7 @@ public class FootmanControl : MonoBehaviour {
 	public GameObject target;
 	private Animator anim;
 
+	private float m_rangeView = 20f;
 	
 	//objects references
 	private GameObject SoP;
@@ -22,6 +23,7 @@ public class FootmanControl : MonoBehaviour {
 	//scripts
 	private StartFM startBehavior;
 	private PickAction pickBehavior;
+	private FleeAction fleeBehavior;
 	//private dieAction dieBehavior;
 	
 	private StaffControl staff;	//used to access staff info
@@ -59,12 +61,15 @@ public class FootmanControl : MonoBehaviour {
 		pickBehavior = GetComponent<PickAction>();
 		//dieBehavior = GetComponent<dieAction>();
 		startBehavior = GetComponent<StartFM>();
+		fleeBehavior = GetComponent<FleeAction>();
+		
 		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
 		
 		//then initialization
 		agent.speed = startBehavior.speed;
 		startBehavior.enabled = false;
 		pickBehavior.enabled = false;
+		fleeBehavior.enabled = false;
 		
 		//
 	}
@@ -102,17 +107,22 @@ public class FootmanControl : MonoBehaviour {
 		
 		if(!forced)
 		{
+			//Debug.Log("Distance : " + Vector3.Distance(this.transform.position, skeleton.transform.position).ToString());
 			//if see skeleton
-			if (Vector3.Distance(this.transform.position, skeleton.transform.position) < 20)
+			if (Vector3.Distance(this.transform.position, skeleton.transform.position) < m_rangeView)
 			{
 				//if one footmen has the sop
 				if(staff.isPicked())
 				{
+					if(fleeBehavior.enabled == false)
+						Debug.Log("Je fuis ! Mais vers l'arbre !");
 					//run away in direction of tree
 					RunAway(bigTree);
 				}
 				else	//no sop
 				{
+					if(fleeBehavior.enabled == false)
+						Debug.Log("Je fuis ! Mais vers le SoP !");
 					RunAway(SoP);
 				}
 			}
@@ -154,6 +164,11 @@ public class FootmanControl : MonoBehaviour {
 		this.target = newtarget;
 	}
 	
+	public float rangeView()
+	{
+		return m_rangeView;
+	}
+	
 	
 	//Functions activating behaviors
 	public void Walk(GameObject newtarget)	//walk = start (but start already used)
@@ -167,14 +182,26 @@ public class FootmanControl : MonoBehaviour {
 			
 			pickBehavior.enabled = false;
 			startBehavior.enabled = true;
+			fleeBehavior.enabled = false;
 		}
 	}
 	
 	
 	public void RunAway(GameObject newtarget)
 	{
+		if(!fleeBehavior.enabled || this.target != newtarget)
+		{
+			Debug.Log("RUN AWAY TO " + newtarget.name);
+			agent.speed = fleeBehavior.speed;	//access to speed parameter of startAction
+			setTarget(newtarget);
+			
+			pickBehavior.enabled = false;
+			startBehavior.enabled = false;
+			fleeBehavior.enabled = true;
+		}
 		int useless = 1;
-		Debug.Log("RUN AWAYYYY");
+		//Debug.Log("RUN AWAYYYY");
+		//RunAnim();
 	}
 	
 	public void PickSoP()
@@ -186,6 +213,7 @@ public class FootmanControl : MonoBehaviour {
 			Debug.Log("PICK SoP");
 			pickBehavior.enabled = true;
 			startBehavior.enabled = false;
+			fleeBehavior.enabled = false;
 			int useless = 1;
 		}
 	}

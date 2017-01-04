@@ -22,7 +22,7 @@ public class chaseAction : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		Debug.Log("CHASE");
+		//Debug.Log("CHASE");
 		agent.SetDestination(parent.target.transform.position);
 		
 		//play run animation
