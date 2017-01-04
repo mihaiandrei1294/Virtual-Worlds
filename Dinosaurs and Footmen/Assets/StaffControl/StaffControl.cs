@@ -6,11 +6,23 @@ public class StaffControl : MonoBehaviour {
 	public Vector3[] startPositions;	//array of possible starting positions of the staff of pain
 	
 	private Vector3 defaultPosition = new Vector3(250, 0, 149); //just a default position in case no position has been set
-    private int grabbed = 0;
+    public bool m_isPicked = false;
     private string player = "";
+	
+	public GameObject holder;	//reference of the object that holds the staff (null by default)
+	
+	//components
+	private Rigidbody rb;
+	private CapsuleCollider m_collider;
+	
+	private Vector3 m_offset = new Vector3(0,1.3f,0.5f);
 	
 	// Use this for initialization
 	void Start () {
+		
+		rb = GetComponent<Rigidbody>();
+		m_collider = GetComponent<CapsuleCollider>();
+		
 		if(startPositions.Length == 0)
 		{
 			this.transform.position = defaultPosition;
@@ -21,17 +33,44 @@ public class StaffControl : MonoBehaviour {
             this.transform.position = defaultPosition;
         }
 
-
+		
+		holder = null;
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    /*if (grabbed == 1 && player != "")
-        {
-            this.transform.position = GameObject.Find(player).transform.position;
-        }*/
+	    if(holder != null)
+		{
+			this.transform.position = holder.transform.position + m_offset;
+			
+			float rotY = holder.transform.eulerAngles.y;
+			//Debug.Log(holder.transform.eulerAngles.ToString());
+			this.transform.eulerAngles = new Vector3(-90, 360-rotY, 0);
+		}
 	}
+	
+	//try to pick the staff, by the fromObject
+	//this is done here to avoid two 
+	public bool Pick(GameObject fromObject)	
+	{
+		return(false);
+	}
+	
+	public void attachTo(GameObject fromObject)	
+	{
+		m_isPicked = true;
+		holder = fromObject;
+		rb.isKinematic = false;
+		m_collider.enabled = false;
+	}
+
+	
+	public bool isPicked()
+	{
+		return m_isPicked;
+	}
+	
 	/*
     void OnTriggerEnter(Collider _collider)
     {

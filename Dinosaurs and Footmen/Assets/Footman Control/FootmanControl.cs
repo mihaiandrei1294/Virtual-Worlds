@@ -24,6 +24,7 @@ public class FootmanControl : MonoBehaviour {
 	private PickAction pickBehavior;
 	//private dieAction dieBehavior;
 	
+	private StaffControl staff;	//used to access staff info
 	
 	private NavMeshAgent agent;
 	
@@ -58,7 +59,10 @@ public class FootmanControl : MonoBehaviour {
 		pickBehavior = GetComponent<PickAction>();
 		//dieBehavior = GetComponent<dieAction>();
 		startBehavior = GetComponent<StartFM>();
+		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
 		
+		//then initialization
+		agent.speed = startBehavior.speed;
 		startBehavior.enabled = false;
 		pickBehavior.enabled = false;
 		
@@ -98,48 +102,48 @@ public class FootmanControl : MonoBehaviour {
 		
 		if(!forced)
 		{
-		//if see skeleton
-		if (Vector3.Distance(this.transform.position, skeleton.transform.position) < 20)
-		{
-			//if the footmen has the sop
-			if(hasSoP)
+			//if see skeleton
+			if (Vector3.Distance(this.transform.position, skeleton.transform.position) < 20)
 			{
-				//run away in direction of tree
-				RunAway(bigTree);
+				//if one footmen has the sop
+				if(staff.isPicked())
+				{
+					//run away in direction of tree
+					RunAway(bigTree);
+				}
+				else	//no sop
+				{
+					RunAway(SoP);
+				}
 			}
-			else	//no sop
+			else	//no skeleton
 			{
-				RunAway(SoP);
-			}
-		}
-		else	//no skeleton
-		{
-			//if the footmen has the sop
-			if(hasSoP)
-			{
-				if(startBehavior.enabled == false)
-					Debug.Log("Je marche vers l'arbre !");
-				//walk to big tree
-				Walk(bigTree);
-			}
-			else	//no sop
-			{
-				//if too far away to pick
-				if (Vector3.Distance(this.transform.position, SoP.transform.position) > 3)
+				//if one footmen has the sop
+				if(staff.isPicked())
 				{
 					if(startBehavior.enabled == false)
-						Debug.Log("Je marche vers le SOP !");
-					
-					Walk(SoP);	//move to SoP
+						Debug.Log("Je marche vers l'arbre !");
+					//walk to big tree
+					Walk(bigTree);
 				}
-				else	//can pick !
+				else	//no sop
 				{
-					if(pickBehavior.enabled == false)
-						Debug.Log("Je prend le SOP !");
-					PickSoP();
+					//if too far away to pick
+					if (Vector3.Distance(this.transform.position, SoP.transform.position) > 3)
+					{
+						if(startBehavior.enabled == false)
+							Debug.Log("Je marche vers le SOP !");
+						
+						Walk(SoP);	//move to SoP
+					}
+					else	//can pick !
+					{
+						if(pickBehavior.enabled == false)
+							Debug.Log(gameObject.name + " prend le SOP !");
+						PickSoP();
+					}
 				}
 			}
-		}
 		}
 	}
 	
@@ -150,8 +154,6 @@ public class FootmanControl : MonoBehaviour {
 		this.target = newtarget;
 	}
 	
-	
-	//210, 0, 140
 	
 	//Functions activating behaviors
 	public void Walk(GameObject newtarget)	//walk = start (but start already used)
