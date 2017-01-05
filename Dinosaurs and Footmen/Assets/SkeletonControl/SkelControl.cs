@@ -6,60 +6,46 @@ using System.Linq;
 
 public class SkelControl : MonoBehaviour {
 
-	public GameObject target;
-	private Animator anim;
-
-
-	public float attackRange = 4;	//attack range
+	//public attributes
+	public GameObject target;				//current target
+	public float attackRange = 4;			//attack range
 	public List<GameObject> footmenList;	//array of footmen
-	
-	//scripts
-	private chaseAction chaseBehavior;
-	private attackAction attackBehavior;
-	private dieAction dieBehavior;
-	private startAction startBehavior;
-
-	private GameObject SoP;
-	private StaffControl staff;	//used to access staff info
-	
-	
-	private NavMeshAgent agent;
-	
-	//some private variable about animation boolean names
-	private string idle = "isStanding";
-	private string run = "isRunning";
-	private string attack = "isAttacking";
-	private string dead = "isDying";
-	private string walk = "isWalking";
-	
 	
 	//Just a variable for making things work, that will be removed with behavior tree
 	private bool isDead = false;
 	
-	// Use this for initialization
+	//Handlers
+	private SkeletonAnimationHandler m_animHandler;
+	private SkeletonActionHandler m_actionHandler;
+	
+	//Object references
+	private GameObject SoP;
+	private StaffControl staff;	//used to access staff info
+	
+	
+	
+	
+
 	void Start ()
 	{
-		anim = GetComponent<Animator>();
-		agent = GetComponent<NavMeshAgent>();
-		
-		chaseBehavior = GetComponent<chaseAction>();
-		attackBehavior = GetComponent<attackAction>();
-		dieBehavior = GetComponent<dieAction>();
-		startBehavior = GetComponent<startAction>();
-		
-		SoP = GameObject.FindWithTag("SoP");
-		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
-		
+		//get targets
 		GameObject[] footmenArr = GameObject.FindGameObjectsWithTag("footman");
 		footmenList = footmenArr.ToList();
 		
-		chaseBehavior.enabled = false;
-		attackBehavior.enabled = false;
-		dieBehavior.enabled = false;
-		startBehavior.enabled = false;
+		//get components
+		m_animHandler = GetComponent<SkeletonAnimationHandler>();
+		m_actionHandler = GetComponent<SkeletonActionHandler>();
+		
+		//Find staff of pain
+		SoP = GameObject.FindWithTag("SoP");
+		staff = (StaffControl) SoP.GetComponent(typeof(StaffControl));
+		
+		
+		
+		m_actionHandler.NoBehavior();	//start by deactivating all behaviors. They will be activated with the behavior tree
 	}
 	
-	// Update is called once per frame
+	
 	void Update ()
 	{
 		
@@ -67,7 +53,6 @@ public class SkelControl : MonoBehaviour {
 		if (!isDead && Input.GetKeyDown("f"))
 		{
 			Debug.Log("DIE !");
-			
 			isDead = true;
 		}
 		
@@ -75,10 +60,9 @@ public class SkelControl : MonoBehaviour {
 		if (isDead && Input.GetKeyDown("r"))
 		{
 			Debug.Log("COME AGAIN !");
-			
 			isDead = false;
-			anim.SetBool(dead, false);
-			dieBehavior.enabled = false;
+			m_animHandler.IdleAnim();
+			m_actionHandler.NoBehavior();
 		}
 		
 		
@@ -96,47 +80,40 @@ public class SkelControl : MonoBehaviour {
 			// if no target
 			if(target == null)
 			{
-				IdleAnim();
-				
-				//disable all behaviors
-				chaseBehavior.enabled = false;
-				attackBehavior.enabled = false;
-				startBehavior.enabled = false;
+				m_animHandler.IdleAnim();
+				m_actionHandler.NoBehavior();
 			}
 			//else if too far away, just walk if SoP safe, else RUN !
 			else if (Vector3.Distance(target.transform.position, this.transform.position) > 20)
 			{
 				if(staff.isPicked())
 				{
-					Chase();
+					m_actionHandler.Chase();
 				}
 				else
 				{
-					Walk();
+					m_actionHandler.Walk();
 				}
 			}
 			else //If see the target 
 			{
-				startBehavior.enabled = false;
+				//startBehavior.enabled = false;
 				
 				Vector3 direction = target.transform.position - this.transform.position;
 				//If two far, chase target
 				if(direction.magnitude > attackRange)
 				{
-					Chase();
+					m_actionHandler.Chase();
 				}
 				else	//attack
 				{
-					Attack();
+					m_actionHandler.Attack();
 				}
 			}
 		}
 		else //play dead
 		{
-			dieBehavior.enabled = true;
-			chaseBehavior.enabled = false;
-			attackBehavior.enabled = false;
-			startBehavior.enabled = false;
+			m_actionHandler.Die();
 			
 		}
 	}
@@ -147,91 +124,17 @@ public class SkelControl : MonoBehaviour {
 		this.target = newtarget;
 	}
 	
-	//Functions activating behaviors
-	public void Chase()
-	{
-		//activate only if not already activated
-		if(!chaseBehavior.enabled)
-		{
-			
-			agent.speed = chaseBehavior.speed;	//access to speed parameter of chaseAction
-			
-			dieBehavior.enabled = false;
-			chaseBehavior.enabled = true;
-			attackBehavior.enabled = false;
-			startBehavior.enabled = false;
-		}
-	}
 	
-	public void Attack()
+	//Getters
+	public SkeletonAnimationHandler animHandler()
 	{
-		dieBehavior.enabled = false;
-		chaseBehavior.enabled = false;
-		attackBehavior.enabled = true;
-		startBehavior.enabled = false;
-	}
-	
-	public void Walk()	//walk = start (but start already used)
-	{
-		//activate only if not already activated
-		if(!startBehavior.enabled)
-		{
-			agent.speed = startBehavior.speed;	//access to speed parameter of startAction
-			
-			dieBehavior.enabled = false;
-			chaseBehavior.enabled = false;
-			attackBehavior.enabled = false;
-			startBehavior.enabled = true;
-		}
+		return this.m_animHandler;
 	}
 	
 	
-	//Functions playing animations
-	//Note: Animation management is done in the behaviors and not in this file if possible
-	public void IdleAnim()
-	{
-		anim.SetBool(idle, true);
-		anim.SetBool(run, false);
-		anim.SetBool(attack, false);
-		anim.SetBool(dead, false);
-		anim.SetBool(walk, false);
-	}
 	
-	public void RunAnim()
-	{
-		anim.SetBool(idle, false);
-		anim.SetBool(run, true);
-		anim.SetBool(attack, false);
-		anim.SetBool(dead, false);
-		anim.SetBool(walk, false);
-	}
 	
-	public void AttackAnim()
-	{
-		anim.SetBool(idle, false);
-		anim.SetBool(run, false);
-		anim.SetBool(attack, true);
-		anim.SetBool(dead, false);
-		anim.SetBool(walk, false);
-	}
 	
-	public void DieAnim()
-	{
-		anim.SetBool(idle, false);
-		anim.SetBool(run, false);
-		anim.SetBool(attack, false);
-		anim.SetBool(dead, true);
-		anim.SetBool(walk, false);
-	}
-	
-	public void WalkAnim()
-	{
-		anim.SetBool(idle, false);
-		anim.SetBool(run, false);
-		anim.SetBool(attack, false);
-		anim.SetBool(dead, false);
-		anim.SetBool(walk, true);
-	}
 	
 
 }

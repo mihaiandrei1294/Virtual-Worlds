@@ -100,6 +100,8 @@
      <Compile Include="Assets\Jurassic Pack\-Demo\comp_cs.cs" />
      <Compile Include="Assets\SkeletonControl\OldskeletonControl.cs" />
      <Compile Include="Assets\SkeletonControl\SkelControl.cs" />
+     <Compile Include="Assets\SkeletonControl\SkeletonActionHandler.cs" />
+     <Compile Include="Assets\SkeletonControl\SkeletonAnimationHandler.cs" />
      <Compile Include="Assets\SkeletonControl\attackAction.cs" />
      <Compile Include="Assets\SkeletonControl\chaseAction.cs" />
      <Compile Include="Assets\SkeletonControl\dieAction.cs" />

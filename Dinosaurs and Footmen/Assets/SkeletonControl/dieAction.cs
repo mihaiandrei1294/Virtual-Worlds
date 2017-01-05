@@ -4,7 +4,6 @@ using System.Collections;
 public class dieAction : MonoBehaviour {
 
 	private SkelControl parent; //main script that will have useful variables, used to handle animations
-
 	
 	
 	// Use this for initialization
@@ -12,14 +11,11 @@ public class dieAction : MonoBehaviour {
 	{
 		parent = GetComponent<SkelControl>();
 		
-		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-	
-			parent.DieAnim();
-	
+		parent.animHandler().DieAnim();
 	}
 }

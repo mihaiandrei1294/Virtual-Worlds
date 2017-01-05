@@ -55,6 +55,11 @@ public class StaffControl : MonoBehaviour {
 			//Debug.Log(holder.transform.eulerAngles.ToString());
 			this.transform.eulerAngles = new Vector3(-90, 360-rotY, 0);
 		}
+		else
+		{
+			if (transform.position.y < 0)
+				this.transform.position =  new Vector3(transform.position.x, 5f, transform.position.z);	//to avoid falling under the ground
+		}
 	}
 	
 	//attach the staff to an object
@@ -74,6 +79,8 @@ public class StaffControl : MonoBehaviour {
 		m_isPicked = false;
 		holder = null;
 		m_collider.enabled = true;
+		
+		
 	}
 
 	

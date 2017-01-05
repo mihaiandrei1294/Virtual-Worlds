@@ -7,8 +7,8 @@ using System.Collections;
 
 public class startAction : MonoBehaviour {
 
-	
-	private SkelControl parent; //main script that will have useful variables, used to handle animations
+	private SkelControl parent; //main script that will have useful variables
+	//private SkeletonAnimationHandler anim; //script used to handle animations
 	
 	
 	private NavMeshAgent agent;
@@ -17,8 +17,8 @@ public class startAction : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		//anim = GetComponent<SkeletonAnimationHandler>();
 		parent = GetComponent<SkelControl>();
-		
 		agent = GetComponent<NavMeshAgent>();
 	}
 	
@@ -28,6 +28,6 @@ public class startAction : MonoBehaviour {
 		agent.SetDestination(parent.target.transform.position);
 		
 		//play run animation
-		parent.WalkAnim();
+		parent.animHandler().WalkAnim();
 	}
 }
