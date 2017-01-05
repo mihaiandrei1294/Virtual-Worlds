@@ -48,13 +48,14 @@
      <Compile Include="Assets\Flocking Unity\UnityFlock.cs" />
      <Compile Include="Assets\Flocking Unity\UnityFlockController.cs" />
      <Compile Include="Assets\Footman Control\FleeAction.cs" />
+     <Compile Include="Assets\Footman Control\FootmanActionHandler.cs" />
+     <Compile Include="Assets\Footman Control\FootmanAnimationHandler.cs" />
      <Compile Include="Assets\Footman Control\FootmanControl.cs" />
      <Compile Include="Assets\Footman Control\OldFootmanControl.cs" />
      <Compile Include="Assets\Footman Control\PickAction.cs" />
      <Compile Include="Assets\Footman Control\RedFlock.cs" />
      <Compile Include="Assets\Footman Control\RedLead.cs" />
      <Compile Include="Assets\Footman Control\StartFM.cs" />
-     <Compile Include="Assets\Footman Control\WalkBackAction.cs" />
      <Compile Include="Assets\Footman Control\dieFootmanAction.cs" />
      <Compile Include="Assets\Footman\Script\MaterialChange.cs" />
      <Compile Include="Assets\Footman\Script\playerControl.cs" />

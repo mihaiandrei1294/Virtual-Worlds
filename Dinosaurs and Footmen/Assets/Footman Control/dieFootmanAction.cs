@@ -20,7 +20,7 @@ public class dieFootmanAction : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		parent.DieAnim();
+		parent.animHandler().DieAnim();
 		
 		//if has the SoP, drop it
 		if(parent.hasSoP())

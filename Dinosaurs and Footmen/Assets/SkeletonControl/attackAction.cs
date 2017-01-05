@@ -46,7 +46,7 @@ public class attackAction : MonoBehaviour {
 			GameObject footman = parent.target;
 			//Debug.Log("ON VA TUER "+ footman.name);
 			FootmanControl footControl = (FootmanControl) footman.GetComponent<FootmanControl>();
-			footControl.Die();
+			footControl.actionHandler().Die();
 			
 			//remove it from the list
 			parent.footmenList.Remove(footman);

@@ -29,7 +29,7 @@ public class StartFM : MonoBehaviour {
 		agent.SetDestination(parent.target.transform.position);
 		//agent.Resume();
 		//play run animation
-		parent.WalkAnim();
+		parent.animHandler().WalkAnim();
 	}
 	
 	

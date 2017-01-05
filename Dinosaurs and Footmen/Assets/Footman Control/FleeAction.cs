@@ -46,10 +46,10 @@ public class FleeAction : MonoBehaviour {
 			}
 			//Debug.Log(hit.position.ToString() + " == " + fleePoint.ToString());*/
 			
-		}while(blocked && numBlock < 10);
+		}while(blocked && numBlock < 4);
 		
 		agent.SetDestination(fleePoint);
 		//play run animation
-		parent.RunAnim();
+		parent.animHandler().RunAnim();
 	}
 }
