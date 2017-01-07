@@ -19,9 +19,11 @@ public class CloseEnoughCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		Vector3 direction = control.target.transform.position - skeleton.transform.position;
-		if (direction.magnitude <= control.attackRange) {
-			return ActionResult.SUCCESS;
+		if (control.target != null) {
+			Vector3 direction = control.target.transform.position - skeleton.transform.position;
+			if (direction.magnitude <= control.attackRange) {
+				return ActionResult.SUCCESS;
+			}
 		}
 		return ActionResult.FAILURE;
 	}

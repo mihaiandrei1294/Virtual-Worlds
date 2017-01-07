@@ -19,10 +19,10 @@ public class HasTargetCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (control.target == null && control.footmenList.Count > 0) {
-			return ActionResult.FAILURE;
+		if (control.target != null) {
+			return ActionResult.SUCCESS;
 		}
-		return ActionResult.SUCCESS;
+		return ActionResult.FAILURE;
 	}
 
 	public override void Stop (RAIN.Core.AI ai)

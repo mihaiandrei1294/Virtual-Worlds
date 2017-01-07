@@ -45,14 +45,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AI\Actions\AnyFootmenLeftCondition.cs" />
+     <Compile Include="Assets\AI\Actions\BigTreeReachedCondition.cs" />
+     <Compile Include="Assets\AI\Actions\ChooseRandomFootmanAction.cs" />
      <Compile Include="Assets\AI\Actions\CloseEnoughCondition.cs" />
+     <Compile Include="Assets\AI\Actions\DoWeHaveSoPCondition.cs" />
+     <Compile Include="Assets\AI\Actions\HasSoPCondition.cs" />
      <Compile Include="Assets\AI\Actions\HasTargetCondition.cs" />
      <Compile Include="Assets\AI\Actions\IdleAction.cs" />
+     <Compile Include="Assets\AI\Actions\IdleActionFootmen.cs" />
      <Compile Include="Assets\AI\Actions\KillAction.cs" />
+     <Compile Include="Assets\AI\Actions\KillSkeletonAction.cs" />
+     <Compile Include="Assets\AI\Actions\PickSopAction.cs" />
      <Compile Include="Assets\AI\Actions\QuiteCloseCondition.cs" />
      <Compile Include="Assets\AI\Actions\RunAction.cs" />
+     <Compile Include="Assets\AI\Actions\RunToBigTreeAction.cs" />
+     <Compile Include="Assets\AI\Actions\RunToSoPAction.cs" />
+     <Compile Include="Assets\AI\Actions\SkeletonAliveCondition.cs" />
+     <Compile Include="Assets\AI\Actions\SkeletonSeenCondition.cs" />
+     <Compile Include="Assets\AI\Actions\SoPInRangeCondition.cs" />
      <Compile Include="Assets\AI\Actions\SoPWithTheFootmenCondition.cs" />
      <Compile Include="Assets\AI\Actions\WalkAction.cs" />
+     <Compile Include="Assets\AI\Actions\WalkToBigTreeAction.cs" />
+     <Compile Include="Assets\AI\Actions\WalkToSoP.cs" />
      <Compile Include="Assets\Flocking Unity\UnityFlock.cs" />
      <Compile Include="Assets\Flocking Unity\UnityFlockController.cs" />
      <Compile Include="Assets\Footman Control\FleeAction.cs" />

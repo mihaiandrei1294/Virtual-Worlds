@@ -19,10 +19,12 @@ public class QuiteCloseCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (Vector3.Distance (control.target.transform.position, skeleton.transform.position) > 20) {
-			return ActionResult.FAILURE;
+		if (control.target != null) {
+			if (Vector3.Distance (control.target.transform.position, skeleton.transform.position) < 20) {
+				return ActionResult.SUCCESS;
+			}
 		}
-		return ActionResult.SUCCESS;
+		return ActionResult.FAILURE;
 	}
 
 	public override void Stop (RAIN.Core.AI ai)

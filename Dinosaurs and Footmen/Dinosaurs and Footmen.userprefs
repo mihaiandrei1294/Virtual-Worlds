@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Footman Control\FootmanControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AI\Actions\CloseEnoughCondition.cs">
     <Files>
-      <File FileName="Assets\Footman Control\FootmanControl.cs" Line="27" Column="57" />
-      <File FileName="Assets\SkeletonControl\SkelControl.cs" Line="95" Column="21" />
-      <File FileName="Assets\Footman Control\FootmanAnimationHandler.cs" Line="4" Column="1" />
-      <File FileName="Assets\SkeletonControl\SkeletonActionHandler.cs" Line="23" Column="3" />
+      <File FileName="Assets\SkeletonControl\SkelControl.cs" Line="88" Column="90" />
+      <File FileName="Assets\AI\Actions\WalkAction.cs" Line="10" Column="2" />
+      <File FileName="Assets\AI\Actions\IdleAction.cs" Line="23" Column="41" />
+      <File FileName="Assets\AI\Actions\CloseEnoughCondition.cs" Line="23" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
