@@ -37,11 +37,10 @@ public class StaffControl : MonoBehaviour
 		
 		
 		if (startPositions.Length == 0) {
-			//this.transform.position = defaultPosition;
+			this.transform.position = defaultPosition;
 		} else {
-			//this.transform.position = startPositions[Random.Range(0, startPositions.Length)];
-//			this.transform.position = defaultPosition;
-			this.transform.position = this.generateRandomPoint (120, 326, 36, 260);
+			this.transform.position = startPositions[Random.Range(0, startPositions.Length)];
+
 		}
 
 		

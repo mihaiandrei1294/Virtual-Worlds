@@ -18,7 +18,7 @@ public class FootmanActionHandler : MonoBehaviour
 	private dieFootmanAction dieBehavior;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		parent = GetComponent<FootmanControl> ();
 		

@@ -5,10 +5,6 @@ Project("{16C20DC2-5F3A-7ADE-4D12-BAB37AD3514C}") = "Dinosaurs and Footmen", "As
 EndProject
 Project("{16C20DC2-5F3A-7ADE-4D12-BAB37AD3514C}") = "Dinosaurs and Footmen", "Assembly-CSharp-Editor.csproj", "{B0136528-049F-0C9A-6A11-6B2B4187F995}"
 EndProject
-Project("{16C20DC2-5F3A-7ADE-4D12-BAB37AD3514C}") = "Dinosaurs and Footmen", "Assembly-Boo-Editor.booproj", "{CE425436-DEDF-12F2-6F20-645C1B95F103}"
-EndProject
-Project("{16C20DC2-5F3A-7ADE-4D12-BAB37AD3514C}") = "Dinosaurs and Footmen", "Assembly-UnityScript-Editor.unityproj", "{3432E61B-9B27-EB39-4CD4-E04FDB1AC2DF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,14 +19,6 @@ Global
 		{B0136528-049F-0C9A-6A11-6B2B4187F995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0136528-049F-0C9A-6A11-6B2B4187F995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0136528-049F-0C9A-6A11-6B2B4187F995}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE425436-DEDF-12F2-6F20-645C1B95F103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE425436-DEDF-12F2-6F20-645C1B95F103}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE425436-DEDF-12F2-6F20-645C1B95F103}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE425436-DEDF-12F2-6F20-645C1B95F103}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3432E61B-9B27-EB39-4CD4-E04FDB1AC2DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3432E61B-9B27-EB39-4CD4-E04FDB1AC2DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3432E61B-9B27-EB39-4CD4-E04FDB1AC2DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3432E61B-9B27-EB39-4CD4-E04FDB1AC2DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
