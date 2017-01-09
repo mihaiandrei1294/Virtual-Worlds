@@ -40,7 +40,8 @@ public class StaffControl : MonoBehaviour
 			//this.transform.position = defaultPosition;
 		} else {
 			//this.transform.position = startPositions[Random.Range(0, startPositions.Length)];
-			this.transform.position = defaultPosition;
+//			this.transform.position = defaultPosition;
+			this.transform.position = this.generateRandomPoint (120, 326, 36, 260);
 		}
 
 		
@@ -89,6 +90,15 @@ public class StaffControl : MonoBehaviour
 	{
 		return m_isPicked;
 	}
-	
+
+
+	private Vector3 generateRandomPoint (int x1, int x2, int z1, int z2)
+	{
+		float x = Random.Range (x1, x2);
+		float y = 0f;
+		float z = Random.Range (z1, z2);
+
+		return new Vector3 (x, y, z);
+	}
 
 }

@@ -20,27 +20,4 @@ C:\Users\Chantal\Documents\Cours\UPC\NDVW\git\Virtual-Worlds\Dinosaurs and Footm
 C:\Users\Chantal\Documents\Cours\UPC\NDVW\git\Virtual-Worlds\Dinosaurs and Footmen\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Chantal\Documents\Cours\UPC\NDVW\git\Virtual-Worlds\Dinosaurs and Footmen\obj\Debug\Assembly-CSharp.dll
 C:\Users\Chantal\Documents\Cours\UPC\NDVW\git\Virtual-Worlds\Dinosaurs and Footmen\obj\Debug\Assembly-CSharp.pdb
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Assembly-CSharp.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Assembly-CSharp.pdb
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\RAIN.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\RAINMetaform.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\TickedPriorityQueue.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEditor.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEngine.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEngine.Networking.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEngine.UI.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Mono.Cecil.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Unity.SerializationLogic.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Unity.DataContract.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\ICSharpCode.NRefactory.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Unity.UNetWeaver.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Unity.CecilTools.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Mono.Cecil.Pdb.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Mono.Cecil.Mdb.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEngine.xml
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEditor.xml
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEngine.UI.xml
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\obj\Debug\Assembly-CSharp.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\obj\Debug\Assembly-CSharp.pdb

@@ -63,9 +63,9 @@ public class FleeAction : MonoBehaviour
 		} while(blocked && numBlock < 4);
 
 //		Debug.Log ("Footman " + this.ToString () + " destination " + fleePoint.ToString () + ". Run from" + skeleton.transform.position.ToString () + ". Run to " + parent.target.transform.position.ToString ());
-		Debug.DrawLine (gameObject.transform.position, fleePoint, Color.yellow);
-		Debug.DrawLine (gameObject.transform.position, skeleton.transform.position, Color.red);
-		Debug.DrawLine (gameObject.transform.position, parent.target.transform.position, Color.green);
+//		Debug.DrawLine (gameObject.transform.position, fleePoint, Color.yellow);
+//		Debug.DrawLine (gameObject.transform.position, skeleton.transform.position, Color.red);
+//		Debug.DrawLine (gameObject.transform.position, parent.target.transform.position, Color.green);
 
 		agent.SetDestination (fleePoint);
 		//play run animation
