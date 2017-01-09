@@ -19,7 +19,7 @@ public class WalkAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.Walk ();
+		control.ActionHandler.Walk ();
 		return ActionResult.SUCCESS;
 	}
 

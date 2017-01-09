@@ -19,7 +19,7 @@ public class ChooseRandomFootmanAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.target = control.footmenList [0];
+		control.Target = control.FootmenList [0];
 		return ActionResult.SUCCESS;
 	}
 

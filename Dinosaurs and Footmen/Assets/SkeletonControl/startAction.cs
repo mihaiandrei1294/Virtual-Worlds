@@ -5,9 +5,11 @@ using System.Collections;
 //smell FM smells -> move towards them (FM = red FM??)
 //FM = red FM for now
 
-public class startAction : MonoBehaviour {
+public class startAction : MonoBehaviour
+{
 
-	private SkelControl parent; //main script that will have useful variables
+	private SkelControl parent;
+	//main script that will have useful variables
 	//private SkeletonAnimationHandler anim; //script used to handle animations
 	
 	
@@ -18,16 +20,16 @@ public class startAction : MonoBehaviour {
 	void Start ()
 	{
 		//anim = GetComponent<SkeletonAnimationHandler>();
-		parent = GetComponent<SkelControl>();
-		agent = GetComponent<NavMeshAgent>();
+		parent = GetComponent<SkelControl> ();
+		agent = GetComponent<NavMeshAgent> ();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		agent.SetDestination(parent.target.transform.position);
+		agent.SetDestination (parent.Target.transform.position);
 		
 		//play run animation
-		parent.animHandler().WalkAnim();
+		parent.AnimHandler.WalkAnim ();
 	}
 }

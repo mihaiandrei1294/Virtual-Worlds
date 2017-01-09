@@ -1,13 +1,10 @@
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Assembly-CSharp-Editor.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\AetherUnity.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\LegionRestModel.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\nunit.framework.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\RAIN.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\RAINEditor.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\RAINMetaform.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\RAINMetaformEditor.dll
-C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\RAINUpdater.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\TickedPriorityQueue.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEditor.Advertisements.dll
 C:\Users\Andrei Mihai\Desktop\andreiworkplace\Unity\Dinosaurs and footmen\Dinosaurs and Footmen\Temp\bin\Debug\UnityEditor.dll

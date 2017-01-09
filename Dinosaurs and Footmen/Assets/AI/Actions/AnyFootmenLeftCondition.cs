@@ -19,7 +19,7 @@ public class AnyFootmenLeftCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (control.footmenList.Count > 0) {
+		if (control.FootmenList.Count > 0) {
 			return ActionResult.SUCCESS;
 		}
 		return ActionResult.FAILURE;

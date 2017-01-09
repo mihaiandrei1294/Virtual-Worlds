@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class chaseAction : MonoBehaviour 
+public class chaseAction : MonoBehaviour
 {
 
-	private SkelControl parent; //main script that will have useful variables
+	private SkelControl parent;
+	//main script that will have useful variables
 	
 	private NavMeshAgent agent;
 	public float speed = 0.5f;
@@ -12,17 +13,17 @@ public class chaseAction : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		parent = GetComponent<SkelControl>();
-		agent = GetComponent<NavMeshAgent>();
+		parent = GetComponent<SkelControl> ();
+		agent = GetComponent<NavMeshAgent> ();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		agent.SetDestination(parent.target.transform.position);
+		agent.SetDestination (parent.Target.transform.position);
 		
 		//play run animation
-		parent.animHandler().RunAnim();
+		parent.AnimHandler.RunAnim ();
 
 
 	}

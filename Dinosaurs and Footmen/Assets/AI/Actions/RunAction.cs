@@ -19,7 +19,7 @@ public class RunAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.Chase ();
+		control.ActionHandler.Chase ();
 		return ActionResult.SUCCESS;
 	}
 

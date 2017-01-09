@@ -9,30 +9,30 @@ using RAIN.Core;
 public class SkelControl : MonoBehaviour
 {
 
-	//public attributes
-	public GameObject target;
+	//attributes
+	private GameObject target;
 	//current target
-	public float attackRange = 4;
+	private float attackRange = 4;
 	//attack range
-	public List<GameObject> footmenList;
+	private List<GameObject> footmenList;
 	//array of footmen
 	
 	//Just a variable for making things work, that will be removed with behavior tree
-	public bool isDead = false;
+	private bool isDead = false;
 	
 	//Handlers
-	public SkeletonAnimationHandler m_animHandler;
-	public SkeletonActionHandler m_actionHandler;
+	private SkeletonAnimationHandler m_animHandler;
+	private SkeletonActionHandler m_actionHandler;
 	
 	//Object references
-	public GameObject SoP;
-	public StaffControl staff;
+	private GameObject sop;
+	private StaffControl staff;
 	//used to access staff info
 	
 	// Changed all attributes to public to be able to acces them from the ai files
 
 	// The ai
-	public AIRig ai;
+	private AIRig ai;
 
 
 	void Start ()
@@ -49,8 +49,8 @@ public class SkelControl : MonoBehaviour
 		ai = GetComponentInChildren<AIRig> ();
 		
 		//Find staff of pain
-		SoP = GameObject.FindWithTag ("SoP");
-		staff = (StaffControl)SoP.GetComponent (typeof(StaffControl));
+		sop = GameObject.FindWithTag ("SoP");
+		staff = (StaffControl)sop.GetComponent (typeof(StaffControl));
 		
 		
 		
@@ -116,23 +116,44 @@ public class SkelControl : MonoBehaviour
 		}
 	}
 
-	
-	public void setTarget (GameObject newtarget)
-	{
-		this.target = newtarget;
+
+	//Getters and setters
+	public SkeletonAnimationHandler AnimHandler {
+		get { return this.m_animHandler; }
 	}
-	
-	
-	//Getters
-	public SkeletonAnimationHandler animHandler ()
-	{
-		return this.m_animHandler;
+
+	public GameObject Target {
+		get { return target; }
+		set { this.target = value; }
 	}
-	
-	
-	
-	
-	
-	
+
+	public float AttackRange {
+		get{ return attackRange; }
+	}
+
+	public bool IsDead {
+		get{ return isDead; }
+		set{ isDead = value; }
+	}
+
+	public SkeletonActionHandler ActionHandler {
+		get { return m_actionHandler; }
+	}
+
+	public GameObject SoP {
+		get{ return sop; }
+	}
+
+	public StaffControl Staff {
+		get{ return staff; }
+	}
+
+	public AIRig AI {
+		get{ return ai; }
+	}
+
+	public List<GameObject> FootmenList {
+		get { return footmenList; }
+	}
 
 }

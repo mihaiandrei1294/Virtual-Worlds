@@ -19,7 +19,7 @@ public class KillAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.Attack ();
+		control.ActionHandler.Attack ();
 		return ActionResult.SUCCESS;
 	}
 
