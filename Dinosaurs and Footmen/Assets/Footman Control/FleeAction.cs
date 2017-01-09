@@ -27,10 +27,20 @@ public class FleeAction : MonoBehaviour
 		float scale = (1 + parent.rangeView () - Vector3.Distance (this.transform.position, skeleton.transform.position));
 		if (scale < 0)
 			scale = 0;
+//		float dist = Vector3.Distance (this.transform.position, skeleton.transform.position);
+//		float scale = (parent.rangeView () + 5) / dist;
 		fleeVector = fleeVector * scale;	//the closer the skeleton, the more we run away and forget about our target
 		
 		Vector3 targetVector = parent.target.transform.position - this.transform.position;
-		
+
+
+		float dist2 = Vector3.Distance (this.transform.position, parent.target.transform.position);
+//		float scale2 = parent.rangeView () - dist2;
+//		if (dist2 < 10)
+//			fleeVector = fleeVector * 0;
+//
+//		targetVector = targetVector * scale2;
+
 		Vector3 fleePoint = gameObject.transform.position + fleeVector + targetVector;		// = footPos + fleeVector
 		
 		//This fleePoint can be on an obstacle. This can causes lag for SetDestination method to finish as it takes time to figure out a path is impossible.
@@ -53,9 +63,9 @@ public class FleeAction : MonoBehaviour
 		} while(blocked && numBlock < 4);
 
 //		Debug.Log ("Footman " + this.ToString () + " destination " + fleePoint.ToString () + ". Run from" + skeleton.transform.position.ToString () + ". Run to " + parent.target.transform.position.ToString ());
-//		Debug.DrawLine (gameObject.transform.position, fleePoint, Color.yellow);
-//		Debug.DrawLine (gameObject.transform.position, skeleton.transform.position, Color.red);
-//		Debug.DrawLine (gameObject.transform.position, parent.target.transform.position, Color.green);
+		Debug.DrawLine (gameObject.transform.position, fleePoint, Color.yellow);
+		Debug.DrawLine (gameObject.transform.position, skeleton.transform.position, Color.red);
+		Debug.DrawLine (gameObject.transform.position, parent.target.transform.position, Color.green);
 
 		agent.SetDestination (fleePoint);
 		//play run animation
