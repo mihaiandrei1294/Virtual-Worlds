@@ -19,7 +19,7 @@ public class WalkToBigTreeAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.Walk (control.bigTree);
+		control.ActionHandler.Walk (control.BigTree);
 		return ActionResult.SUCCESS;
 	}
 

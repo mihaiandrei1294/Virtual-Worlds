@@ -19,8 +19,8 @@ public class IdleActionFootmen : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_animHandler.IdleAnim ();
-		control.m_actionHandler.NoBehavior ();
+		control.AnimHandler.IdleAnim ();
+		control.ActionHandler.NoBehavior ();
 		return ActionResult.SUCCESS;
 	}
 

@@ -19,10 +19,10 @@ public class SkeletonSeenCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (control.skeletonSeen)
+		if (control.SkeletonSeen)
 			return ActionResult.SUCCESS;
-		if (Vector3.Distance (footman.transform.position, control.skeleton.transform.position) <= control.m_rangeView) {
-			control.skeletonSeen = true;
+		if (Vector3.Distance (footman.transform.position, control.Skeleton.transform.position) <= control.RangeView) {
+			control.SkeletonSeen = true;
 			return ActionResult.SUCCESS;
 		}
 		return ActionResult.FAILURE;

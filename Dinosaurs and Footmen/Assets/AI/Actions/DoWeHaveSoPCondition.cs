@@ -20,7 +20,7 @@ public class DoWeHaveSoPCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (!control.staff.isPicked ()) {
+		if (!control.Staff.isPicked ()) {
 			return ActionResult.SUCCESS;
 		}
 		return ActionResult.FAILURE;

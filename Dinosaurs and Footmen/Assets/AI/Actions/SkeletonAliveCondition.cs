@@ -19,7 +19,7 @@ public class SkeletonAliveCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (!control.skeleton.GetComponent<SkelControl> ().isDead)
+		if (!control.Skeleton.GetComponent<SkelControl> ().isDead)
 			return ActionResult.SUCCESS;
 		return ActionResult.FAILURE;
 	}

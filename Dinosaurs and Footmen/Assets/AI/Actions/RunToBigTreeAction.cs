@@ -19,7 +19,7 @@ public class RunToBigTreeAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.RunAway (control.bigTree);
+		control.ActionHandler.RunAway (control.BigTree);
 		return ActionResult.SUCCESS;
 	}
 

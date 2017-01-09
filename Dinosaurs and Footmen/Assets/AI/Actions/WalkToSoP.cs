@@ -20,7 +20,7 @@ public class WalkToSoP : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.Walk (control.SoP);
+		control.ActionHandler.Walk (control.SoP);
 		return ActionResult.SUCCESS;
 	}
 

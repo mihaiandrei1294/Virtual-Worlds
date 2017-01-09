@@ -19,7 +19,7 @@ public class KillSkeletonAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.skeleton.GetComponent<SkelControl> ().isDead = true;
+		control.Skeleton.GetComponent<SkelControl> ().isDead = true;
 		return ActionResult.SUCCESS;
 	}
 

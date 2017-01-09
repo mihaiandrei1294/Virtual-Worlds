@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FootmanActionHandler : MonoBehaviour {
+public class FootmanActionHandler : MonoBehaviour
+{
 
 	//components
 	private NavMeshAgent agent;
 	private CapsuleCollider m_collider;
 	
 	//scripts
-	private FootmanControl parent; //main script that will have useful variables
+	private FootmanControl parent;
+	//main script that will have useful variables
 	
 	private StartFM startBehavior;
 	private PickAction pickBehavior;
@@ -16,28 +18,28 @@ public class FootmanActionHandler : MonoBehaviour {
 	private dieFootmanAction dieBehavior;
 
 	// Use this for initialization
-	void Start () {
-		parent = GetComponent<FootmanControl>();
+	void Start ()
+	{
+		parent = GetComponent<FootmanControl> ();
 		
-		agent = GetComponent<NavMeshAgent>();
-		m_collider = GetComponent<CapsuleCollider>();
+		agent = GetComponent<NavMeshAgent> ();
+		m_collider = GetComponent<CapsuleCollider> ();
 		
 		
-		pickBehavior = GetComponent<PickAction>();
-		dieBehavior = GetComponent<dieFootmanAction>();
-		startBehavior = GetComponent<StartFM>();
-		fleeBehavior = GetComponent<FleeAction>();
+		pickBehavior = GetComponent<PickAction> ();
+		dieBehavior = GetComponent<dieFootmanAction> ();
+		startBehavior = GetComponent<StartFM> ();
+		fleeBehavior = GetComponent<FleeAction> ();
 	
 	}
 	
 	//Functions activating behaviors
-	public void Walk(GameObject newtarget)	//walk = start (but start already used)
+	public void Walk (GameObject newtarget)	//walk = start (but start already used)
 	{
 		//activate only if not already activated or going to new target
-		if(!startBehavior.enabled || parent.target != newtarget)
-		{
+		if (!startBehavior.enabled || parent.target != newtarget) {
 			agent.speed = startBehavior.speed;	//access to speed parameter of startAction
-			parent.setTarget(newtarget);
+			parent.Target = newtarget;
 			
 			pickBehavior.enabled = false;
 			startBehavior.enabled = true;
@@ -45,14 +47,13 @@ public class FootmanActionHandler : MonoBehaviour {
 			dieBehavior.enabled = false;
 		}
 	}
+
 	
-	
-	public void RunAway(GameObject newtarget)
+	public void RunAway (GameObject newtarget)
 	{
-		if(!fleeBehavior.enabled || parent.target != newtarget)
-		{
+		if (!fleeBehavior.enabled || parent.target != newtarget) {
 			agent.speed = fleeBehavior.speed;	//access to speed parameter of startAction
-			parent.setTarget(newtarget);
+			parent.Target = newtarget;
 			
 			pickBehavior.enabled = false;
 			startBehavior.enabled = false;
@@ -61,43 +62,41 @@ public class FootmanActionHandler : MonoBehaviour {
 		}
 		
 	}
-	
-	public void PickSoP()
+
+	public void PickSoP ()
 	{
 		//activate only if not already activated
-		if(!pickBehavior.enabled)
-		{
+		if (!pickBehavior.enabled) {
 			pickBehavior.enabled = true;
 			startBehavior.enabled = false;
 			fleeBehavior.enabled = false;
 			dieBehavior.enabled = false;
 		}
 	}
-	
-	public void Die()
+
+	public void Die ()
 	{
 		//activate only if not already activated
-		if(!dieBehavior.enabled)
-		{
-			parent.setDead();
-			Debug.Log("Die");
+		if (!dieBehavior.enabled) {
+			parent.IsDead = true;
+			Debug.Log ("Die");
 			pickBehavior.enabled = false;
 			startBehavior.enabled = false;
 			fleeBehavior.enabled = false;
 			dieBehavior.enabled = true;
 			
 			agent.speed = 0;
-			agent.ResetPath();
+			agent.ResetPath ();
 			
 			m_collider.enabled = false;
 			
 		}
 	}
-	
-	public void NoBehavior()	//deactivate all behaviors
+
+	public void NoBehavior ()	//deactivate all behaviors
 	{
 		agent.speed = 0;
-		agent.ResetPath();
+		agent.ResetPath ();
 		
 		dieBehavior.enabled = false;
 		pickBehavior.enabled = false;

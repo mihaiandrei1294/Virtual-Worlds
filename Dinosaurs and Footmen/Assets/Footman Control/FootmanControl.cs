@@ -10,33 +10,33 @@ public class FootmanControl : MonoBehaviour
 	//////////////////
 
 	public GameObject target;
-	public bool m_hasSoP = false;
+	private bool m_hasSoP = false;
 	//boolean indicating if the agent has the Staff of Pain
 
-	public bool skeletonSeen = false;
+	private bool skeletonSeen = false;
 	// boolean indicating if the footman has ever seen the skeleton
-	public float m_rangeView = 20f;
+	private float m_rangeView = 20f;
 	
 	private bool m_isDead = false;
 	
 	//Handlers
-	public FootmanAnimationHandler m_animHandler;
-	public FootmanActionHandler m_actionHandler;
+	private FootmanAnimationHandler m_animHandler;
+	private FootmanActionHandler m_actionHandler;
 	
 	
 	//objects references
-	public GameObject SoP;
-	public GameObject skeleton;
-	public GameObject bigTree;
+	private GameObject sop;
+	private GameObject skeleton;
+	private GameObject bigTree;
 	//Note : We do not go directly to the big tree but to a Goal location in front of it
 	
 	
-	public StaffControl staff;
+	private StaffControl staff;
 	//used to access staff info
 	
 	
 	// The ai
-	public AIRig ai;
+	private AIRig ai;
 
 	
 	///////////////
@@ -50,14 +50,14 @@ public class FootmanControl : MonoBehaviour
 		m_actionHandler = GetComponent<FootmanActionHandler> ();
 		
 		//getting objects references
-		SoP = GameObject.FindWithTag ("SoP");
+		sop = GameObject.FindWithTag ("SoP");
 		skeleton = GameObject.FindWithTag ("skeleton");
 		bigTree = GameObject.FindWithTag ("bigTree");
 
 		// Get AI
 		ai = GetComponentInChildren<AIRig> ();
 		
-		staff = (StaffControl)SoP.GetComponent (typeof(StaffControl));
+		staff = (StaffControl)sop.GetComponent (typeof(StaffControl));
 		
 		//then initialization
 		m_actionHandler.NoBehavior ();
@@ -112,46 +112,55 @@ public class FootmanControl : MonoBehaviour
 	
 	
 	
-	//Getters
-	public FootmanAnimationHandler animHandler ()
-	{
-		return this.m_animHandler;
+	//Getters and Setters
+	public FootmanAnimationHandler AnimHandler {
+		get { return this.m_animHandler; }
 	}
 
-	public FootmanActionHandler actionHandler ()
-	{
-		return this.m_actionHandler;
+	public FootmanActionHandler ActionHandler {
+		get{ return this.m_actionHandler; }
 	}
 
-	public float rangeView ()
-	{
-		return m_rangeView;
+	public float RangeView {
+		get { return m_rangeView; }
 	}
 
-	public bool isDead ()
-	{
-		return m_isDead;
+	public bool IsDead {
+		get { return m_isDead; }
+		set { this.m_isDead = value; }
 	}
 
-	public bool hasSoP ()
-	{
-		return m_hasSoP;
-	}
-	
-	
-	//Setters
-	public void setDead ()
-	{
-		this.m_isDead = true;
+	public bool HasSoP {
+		get { return m_hasSoP; }
+		set { this.m_hasSoP = value; }
 	}
 
-	public void setTarget (GameObject newtarget)
-	{
-		this.target = newtarget;
+	public GameObject Target {
+		set { this.target = value; }
 	}
 
-	public void setHasSoP (bool newbool)
-	{
-		this.m_hasSoP = newbool;
+	public bool SkeletonSeen {
+		get { return skeletonSeen; }
+		set { skeletonSeen = value; }
+	}
+
+	public GameObject Skeleton {
+		get { return skeleton; }
+	}
+
+	public GameObject BigTree {
+		get { return bigTree; }
+	}
+
+	public GameObject SoP {
+		get { return sop; }
+	}
+
+	public AIRig AI {
+		get{ return ai; }
+	}
+
+	public StaffControl Staff {
+		get { return staff; }
 	}
 }

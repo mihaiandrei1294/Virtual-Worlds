@@ -19,7 +19,7 @@ public class BigTreeReachedCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (Vector3.Distance (footman.transform.position, control.bigTree.transform.position) <= 3)
+		if (Vector3.Distance (footman.transform.position, control.BigTree.transform.position) <= 3)
 			return ActionResult.SUCCESS;
 		return ActionResult.FAILURE;
 	}

@@ -4,3 +4,176 @@ Second main branch footmen.jpg
 backup 05.01 Dinosaurs and Footmen.rar
 second main branch.graphml
 second main branch.jpg
+AI - back up 09.01 12-45/Actions.meta
+AI - back up 09.01 12-45/Actions/AnyFootmenLeftCondition.cs
+AI - back up 09.01 12-45/Actions/AnyFootmenLeftCondition.cs.meta
+AI - back up 09.01 12-45/Actions/BigTreeReachedCondition.cs
+AI - back up 09.01 12-45/Actions/BigTreeReachedCondition.cs.meta
+AI - back up 09.01 12-45/Actions/ChooseRandomFootmanAction.cs
+AI - back up 09.01 12-45/Actions/ChooseRandomFootmanAction.cs.meta
+AI - back up 09.01 12-45/Actions/CloseEnoughCondition.cs
+AI - back up 09.01 12-45/Actions/CloseEnoughCondition.cs.meta
+AI - back up 09.01 12-45/Actions/DoWeHaveSoPCondition.cs
+AI - back up 09.01 12-45/Actions/DoWeHaveSoPCondition.cs.meta
+AI - back up 09.01 12-45/Actions/HasSoPCondition.cs
+AI - back up 09.01 12-45/Actions/HasSoPCondition.cs.meta
+AI - back up 09.01 12-45/Actions/HasTargetCondition.cs
+AI - back up 09.01 12-45/Actions/HasTargetCondition.cs.meta
+AI - back up 09.01 12-45/Actions/IdleAction.cs
+AI - back up 09.01 12-45/Actions/IdleAction.cs.meta
+AI - back up 09.01 12-45/Actions/IdleActionFootmen.cs
+AI - back up 09.01 12-45/Actions/IdleActionFootmen.cs.meta
+AI - back up 09.01 12-45/Actions/KillAction.cs
+AI - back up 09.01 12-45/Actions/KillAction.cs.meta
+AI - back up 09.01 12-45/Actions/KillSkeletonAction.cs
+AI - back up 09.01 12-45/Actions/KillSkeletonAction.cs.meta
+AI - back up 09.01 12-45/Actions/PickSopAction.cs
+AI - back up 09.01 12-45/Actions/PickSopAction.cs.meta
+AI - back up 09.01 12-45/Actions/QuiteCloseCondition.cs
+AI - back up 09.01 12-45/Actions/QuiteCloseCondition.cs.meta
+AI - back up 09.01 12-45/Actions/RunAction.cs
+AI - back up 09.01 12-45/Actions/RunAction.cs.meta
+AI - back up 09.01 12-45/Actions/RunToBigTreeAction.cs
+AI - back up 09.01 12-45/Actions/RunToBigTreeAction.cs.meta
+AI - back up 09.01 12-45/Actions/RunToSoPAction.cs
+AI - back up 09.01 12-45/Actions/RunToSoPAction.cs.meta
+AI - back up 09.01 12-45/Actions/SkeletonAliveCondition.cs
+AI - back up 09.01 12-45/Actions/SkeletonAliveCondition.cs.meta
+AI - back up 09.01 12-45/Actions/SkeletonSeenCondition.cs
+AI - back up 09.01 12-45/Actions/SkeletonSeenCondition.cs.meta
+AI - back up 09.01 12-45/Actions/SoPInRangeCondition.cs
+AI - back up 09.01 12-45/Actions/SoPInRangeCondition.cs.meta
+AI - back up 09.01 12-45/Actions/SoPWithTheFootmenCondition.cs
+AI - back up 09.01 12-45/Actions/SoPWithTheFootmenCondition.cs.meta
+AI - back up 09.01 12-45/Actions/WalkAction.cs
+AI - back up 09.01 12-45/Actions/WalkAction.cs.meta
+AI - back up 09.01 12-45/Actions/WalkToBigTreeAction.cs
+AI - back up 09.01 12-45/Actions/WalkToBigTreeAction.cs.meta
+AI - back up 09.01 12-45/Actions/WalkToSoP.cs
+AI - back up 09.01 12-45/Actions/WalkToSoP.cs.meta
+AI - back up 09.01 12-45/BehaviorTrees.meta
+AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.asset
+AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.asset.meta
+AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.txt
+AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.txt.meta
+AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.asset
+AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.asset.meta
+AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.txt
+AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.txt.meta
+AI - back up 09.01 12-45/Cache.meta
+AI - back up 09.01 12-45/Cache/BTEditorWindowState.asset
+AI - back up 09.01 12-45/Cache/BTEditorWindowState.asset.meta
+AI backups/AI - back up 09.01 12-45/Actions.meta
+AI backups/AI - back up 09.01 12-45/Actions/AnyFootmenLeftCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/AnyFootmenLeftCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/BigTreeReachedCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/BigTreeReachedCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/ChooseRandomFootmanAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/ChooseRandomFootmanAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/CloseEnoughCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/CloseEnoughCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/DoWeHaveSoPCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/DoWeHaveSoPCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/HasSoPCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/HasSoPCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/HasTargetCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/HasTargetCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/IdleAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/IdleAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/IdleActionFootmen.cs
+AI backups/AI - back up 09.01 12-45/Actions/IdleActionFootmen.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/KillAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/KillAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/KillSkeletonAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/KillSkeletonAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/PickSopAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/PickSopAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/QuiteCloseCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/QuiteCloseCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/RunAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/RunAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/RunToBigTreeAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/RunToBigTreeAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/RunToSoPAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/RunToSoPAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/SkeletonAliveCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/SkeletonAliveCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/SkeletonSeenCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/SkeletonSeenCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/SoPInRangeCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/SoPInRangeCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/SoPWithTheFootmenCondition.cs
+AI backups/AI - back up 09.01 12-45/Actions/SoPWithTheFootmenCondition.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/WalkAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/WalkAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/WalkToBigTreeAction.cs
+AI backups/AI - back up 09.01 12-45/Actions/WalkToBigTreeAction.cs.meta
+AI backups/AI - back up 09.01 12-45/Actions/WalkToSoP.cs
+AI backups/AI - back up 09.01 12-45/Actions/WalkToSoP.cs.meta
+AI backups/AI - back up 09.01 12-45/BehaviorTrees.meta
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.asset
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.asset.meta
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.txt
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/FootmanBehaviour.txt.meta
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.asset
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.asset.meta
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.txt
+AI backups/AI - back up 09.01 12-45/BehaviorTrees/SkeletonBehaviour.txt.meta
+AI backups/AI - back up 09.01 12-45/Cache.meta
+AI backups/AI - back up 09.01 12-45/Cache/BTEditorWindowState.asset
+AI backups/AI - back up 09.01 12-45/Cache/BTEditorWindowState.asset.meta
+AI backups/AI - back up 09.01 13-34/Actions.meta
+AI backups/AI - back up 09.01 13-34/Actions/AnyFootmenLeftCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/AnyFootmenLeftCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/BigTreeReachedCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/BigTreeReachedCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/ChooseRandomFootmanAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/ChooseRandomFootmanAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/CloseEnoughCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/CloseEnoughCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/DoWeHaveSoPCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/DoWeHaveSoPCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/HasSoPCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/HasSoPCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/HasTargetCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/HasTargetCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/IdleAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/IdleAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/IdleActionFootmen.cs
+AI backups/AI - back up 09.01 13-34/Actions/IdleActionFootmen.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/KillAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/KillAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/KillSkeletonAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/KillSkeletonAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/PickSopAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/PickSopAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/QuiteCloseCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/QuiteCloseCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/RunAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/RunAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/RunToBigTreeAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/RunToBigTreeAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/RunToSoPAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/RunToSoPAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/SkeletonAliveCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/SkeletonAliveCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/SkeletonSeenCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/SkeletonSeenCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/SoPInRangeCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/SoPInRangeCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/SoPWithTheFootmenCondition.cs
+AI backups/AI - back up 09.01 13-34/Actions/SoPWithTheFootmenCondition.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/WalkAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/WalkAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/WalkToBigTreeAction.cs
+AI backups/AI - back up 09.01 13-34/Actions/WalkToBigTreeAction.cs.meta
+AI backups/AI - back up 09.01 13-34/Actions/WalkToSoP.cs
+AI backups/AI - back up 09.01 13-34/Actions/WalkToSoP.cs.meta
+AI backups/AI - back up 09.01 13-34/BehaviorTrees.meta
+AI backups/AI - back up 09.01 13-34/BehaviorTrees/FootmanBehaviour.txt
+AI backups/AI - back up 09.01 13-34/BehaviorTrees/FootmanBehaviour.txt.meta
+AI backups/AI - back up 09.01 13-34/BehaviorTrees/SkeletonBehaviour.txt
+AI backups/AI - back up 09.01 13-34/BehaviorTrees/SkeletonBehaviour.txt.meta
+AI backups/AI - back up 09.01 13-34/Cache.meta
+AI backups/AI - back up 09.01 13-34/Cache/BTEditorWindowState.asset
+AI backups/AI - back up 09.01 13-34/Cache/BTEditorWindowState.asset.meta

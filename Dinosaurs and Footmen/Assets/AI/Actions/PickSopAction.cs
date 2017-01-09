@@ -19,7 +19,7 @@ public class PickSopAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.PickSoP ();
+		control.ActionHandler.PickSoP ();
 		return ActionResult.SUCCESS;
 	}
 

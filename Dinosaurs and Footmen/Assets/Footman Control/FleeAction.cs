@@ -24,7 +24,7 @@ public class FleeAction : MonoBehaviour
 	{
 		Vector3 fleeVector = this.transform.position - skeleton.transform.position;	//= - (skelPos - footPos)
 //		Debug.Log ("flee vector scaling is: " + (1 + parent.rangeView () - Vector3.Distance (this.transform.position, skeleton.transform.position)));
-		float scale = (1 + parent.rangeView () - Vector3.Distance (this.transform.position, skeleton.transform.position));
+		float scale = (1 + parent.RangeView - Vector3.Distance (this.transform.position, skeleton.transform.position));
 		if (scale < 0)
 			scale = 0;
 //		float dist = Vector3.Distance (this.transform.position, skeleton.transform.position);
@@ -69,6 +69,6 @@ public class FleeAction : MonoBehaviour
 
 		agent.SetDestination (fleePoint);
 		//play run animation
-		parent.animHandler ().RunAnim ();
+		parent.AnimHandler.RunAnim ();
 	}
 }

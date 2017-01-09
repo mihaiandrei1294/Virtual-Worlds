@@ -1,18 +1,7 @@
 fileFormatVersion: 2
-guid: 5bc78d78affecc842b484b4468aea86a
-labels:
-- AI
-- Scripting
-- FPS
-- RPG
-- Behavior
-- Pathfinding
-- BehaviorTrees
-- Sensors
-- Mecanim
-- Animation
-- Motion
-- RAIN
+guid: dd71028efae14cf49b0ed7b032b6f192
+timeCreated: 1483958528
+licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}

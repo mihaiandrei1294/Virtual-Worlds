@@ -19,7 +19,7 @@ public class RunToSoPAction : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		control.m_actionHandler.RunAway (control.SoP);
+		control.ActionHandler.RunAway (control.SoP);
 		return ActionResult.SUCCESS;
 	}
 

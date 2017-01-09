@@ -19,7 +19,7 @@ public class HasSoPCondition : RAINAction
 
 	public override ActionResult Execute (RAIN.Core.AI ai)
 	{
-		if (control.hasSoP ()) {
+		if (control.HasSoP) {
 			return ActionResult.SUCCESS;
 		}
 		return ActionResult.FAILURE;
